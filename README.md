@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&pause=1000&color=00D4FF&center=true&vCenter=true&width=800&lines=AML+Sentinel+—+Financial+Crime+Intelligence;Real-Time+Transaction+Monitoring+%7C+Agentic+AI;Graph-Based+Network+Analysis+%7C+Auto-SAR+Filing" alt="Typing SVG" />
+<img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=30&pause=1000&color=00D4FF&center=true&vCenter=true&width=900&lines=AML+Sentinel+%7C+Financial+Crime+Intelligence;Real-Time+Transaction+Monitoring+%7C+Graph+AI;ML+Detection+%7C+Auto-SAR+Filing+%7C+85%25+Accuracy" alt="AML Sentinel - Typing Animation" />
 
 <br/>
 
