@@ -13,9 +13,10 @@
 
 <br/>
 
-| 👤 Author | 🎓 Programme | 📅 Academic Year | 🆔 Registration Number |
-|:---:|:---:|:---:|:---:|
-| **Chigurupati Venkat Sai Kiran** | M.Tech CSE (AI & ML) | 2025–27 | **25MAI1006** |
+| 👥 Team Name | 👤 Team Member | 🎓 Programme | 🆔 Registration Number | 📧 Email |
+|:---:|:---|:---:|:---:|:---|
+| **spirit** (107) | **Palchuri Rama Anirudh** | Integrated M.Tech CSE | **22MIA1071** | [palchuriramaanirudh@gmail.com](mailto:palchuriramaanirudh@gmail.com) |
+| | **Chigurupati Venkat Sai Kiran** | M.Tech CSE (AI & ML) | **25MAI1006** | [chigurupativenkatsai@gmail.com](mailto:chigurupativenkatsai@gmail.com) |
 
 <br/>
 
@@ -396,9 +397,14 @@ aml-sentinel-graph-agent/
 
 <div align="center">
 
-**Built with ❤️ by [Chigurupati Venkat Sai Kiran](https://github.com/ChigurupatiVenkatSaiKiran)**
+**Built with ❤️ by Team spirit (Apex 107)**
 
-*M.Tech CSE (Specialization in AI & ML) · Registration No. 25MAI1006 · 2025–27*
+| Member | Programme | Registration Number | Email |
+|:---|:---:|:---:|:---|
+| **Palchuri Rama Anirudh** | Integrated M.Tech CSE | **22MIA1071** | [palchuriramaanirudh@gmail.com](mailto:palchuriramaanirudh@gmail.com) |
+| **Chigurupati Venkat Sai Kiran** | M.Tech CSE (AI & ML) | **25MAI1006** | [chigurupativenkatsai@gmail.com](mailto:chigurupativenkatsai@gmail.com) |
+
+*Societe Generale Hackathon, Chennai Campus (Graduation 2027)*
 
 <br/>
 
