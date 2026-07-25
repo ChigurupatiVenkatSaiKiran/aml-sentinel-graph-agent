@@ -33,10 +33,14 @@ def main():
         fraud_rows["sender_id"].iloc[0] if not fraud_rows.empty else "ACC10822"
     )
 
+    # PS1 Example Queries - each routes to a DIFFERENT set of tools
+    # demonstrating the agent's dynamic, non-fixed pipeline behavior
     test_queries = [
-        "Find structuring patterns in transaction amounts",
-        f"Is customer {demo_account} suspicious?",
-        "Show transaction network for key community",
+        "Find structuring patterns in the last 30 days",               # -> rule_engine + graph_detector only, with date filter
+        f"Is customer {demo_account} suspicious?",                     # -> entity_lookup + ml_model + graph + explainer only
+        "Which customers made 10+ transactions under $10,000?",        # -> rule_engine + statistical only, skips ML
+        "Analyze dataset for suspicious activity",                     # -> all 4 layers (broad sweep)
+        "Show transaction network for key community",                  # -> graph_detector + visualizer only
     ]
 
     for i, query in enumerate(test_queries, 1):

@@ -44,23 +44,52 @@ class AMLOrchestrator:
         """
         Fast keyword/regex router -- no network calls, never fails in demo.
         Returns a plan dict with: intent, filters, components, reasoning.
+
+        Dynamically selects which tools/components to invoke based on query intent.
+        Not every query invokes every tool -- selection is query-driven (per PS1 requirements).
         """
         q = query.lower()
         plan = {"intent": "general", "filters": {}, "components": [], "reasoning": ""}
 
-        # 1. Structuring
-        if any(w in q for w in ["structur", "threshold", "under 10", "under $10", "8000", "9000"]):
+        # 0. Extract date/time filter if present (e.g. "last 30 days", "last week")
+        date_match = re.search(r"last\s+(\d+)\s+(day|days|week|weeks|month|months)", q)
+        if date_match:
+            num = int(date_match.group(1))
+            unit = date_match.group(2)
+            if "month" in unit:
+                num *= 30
+            elif "week" in unit:
+                num *= 7
+            plan["filters"]["date_days"] = num
+
+        # 1. Structuring / threshold queries
+        if any(w in q for w in ["structur", "threshold", "under 10", "under $10", "8000", "9000", "ctr"]):
             plan.update(
                 intent="structuring",
                 components=["rule_engine", "graph_detector"],
                 reasoning=(
                     "Detected STRUCTURING query -> activating rule engine threshold checks "
-                    "and graph fan-out pattern matching. Bypassing broad statistical profiling."
+                    "and graph fan-out pattern matching. "
+                    + (f"Applying date filter: last {plan['filters'].get('date_days', 'N/A')} days. " if "date_days" in plan["filters"] else "")
+                    + "Bypassing broad statistical profiling and full-dataset ML sweep."
                 ),
             )
             return plan
 
-        # 2. Single entity lookup (customer ID in query)
+        # 2. Aggregation / threshold count queries (e.g. "10+ transactions under $10,000")
+        if re.search(r"\d+\+?\s*transaction|how many|count|frequen|velocity", q):
+            plan.update(
+                intent="aggregation",
+                components=["rule_engine", "statistical"],
+                reasoning=(
+                    "Detected AGGREGATION / COUNT query -> running rule-based threshold aggregation "
+                    "and statistical frequency profiling only. "
+                    "ML model and graph traversal not required for this query type."
+                ),
+            )
+            return plan
+
+        # 3. Single entity lookup (customer ID in query)
         acc_match = re.search(r"\b(acc\d{4,6})\b", q)
         cust_match = re.search(r"customer\s+#?([a-z0-9]+)", q)
         target = None
@@ -72,7 +101,7 @@ class AMLOrchestrator:
         if target:
             plan.update(
                 intent="entity",
-                filters={"account_id": target},
+                filters={**plan["filters"], "account_id": target},
                 components=["entity_lookup", "ml_model", "graph_detector", "explainer"],
                 reasoning=(
                     f"Detected ENTITY query for account [{target}] -> "
@@ -83,8 +112,8 @@ class AMLOrchestrator:
             )
             return plan
 
-        # 3. Network / community / mule ring
-        if any(w in q for w in ["network", "ring", "cluster", "community", "mule", "connect"]):
+        # 4. Network / community / mule ring
+        if any(w in q for w in ["network", "ring", "cluster", "community", "mule", "connect", "graph"]):
             plan.update(
                 intent="network",
                 components=["graph_detector", "visualizer"],
@@ -95,8 +124,8 @@ class AMLOrchestrator:
             )
             return plan
 
-        # 4. Broad / full dataset sweep
-        if any(w in q for w in ["analyse", "analyze", "overview", "all", "broad", "whole", "full"]):
+        # 5. Broad / full dataset sweep
+        if any(w in q for w in ["analyse", "analyze", "overview", "all", "broad", "whole", "full", "suspicious activity"]):
             plan.update(
                 intent="broad",
                 components=["rule_engine", "statistical", "ml_model", "graph_detector"],
@@ -114,6 +143,7 @@ class AMLOrchestrator:
             reasoning="General query -> invoking compliance rules and RandomForest classifier.",
         )
         return plan
+
 
     # -- Execution Engine -------------------------------------------------------
 
@@ -158,6 +188,14 @@ class AMLOrchestrator:
 
         intent     = plan["intent"]
         account_id = plan["filters"].get("account_id")
+        date_days  = plan["filters"].get("date_days")
+
+        # Apply date filter to working dataframe if specified
+        working_df = self.df
+        if date_days:
+            import pandas as pd
+            cutoff = working_df["timestamp"].max() - pd.Timedelta(days=date_days)
+            working_df = working_df[working_df["timestamp"] >= cutoff]
 
         # -- ENTITY intent --------------------------------------------------
         if intent == "entity":
@@ -196,7 +234,7 @@ class AMLOrchestrator:
 
         # -- STRUCTURING intent ---------------------------------------------
         elif intent == "structuring":
-            subset = self.df[self.df["is_structuring_amount"] == 1]
+            subset = working_df[working_df["is_structuring_amount"] == 1]
             if not subset.empty:
                 scored = self._score_rows(subset)
                 results["flagged_transactions"] = scored.sort_values("risk_score", ascending=False)
@@ -210,6 +248,33 @@ class AMLOrchestrator:
                 )
 
             results["graph_html_path"] = generate_interactive_graph(self.graph.G, max_nodes=40)
+
+        # -- AGGREGATION intent (e.g. "which customers made 10+ transactions under $10k")
+        # Only invokes rule_engine + statistical. Skips ML model and graph traversal.
+        elif intent == "aggregation":
+            rule_flagged = working_df[
+                (working_df["is_structuring_amount"] == 1)
+                | (working_df.get("tx_count_7d", 0) >= 10)
+            ] if "tx_count_7d" in working_df.columns else working_df[
+                working_df["is_structuring_amount"] == 1
+            ]
+            if not rule_flagged.empty:
+                # Score with rules + statistical only (no ML inference)
+                subset = rule_flagged.copy().reset_index(drop=True)
+                rule_s, stat_s, risk_s, risk_c = [], [], [], []
+                for _, row in subset.iterrows():
+                    r_flags = self.rule_engine.evaluate_transaction(row)
+                    s_flags = self.stat_detector.evaluate_transaction(row)
+                    rule_s.append(r_flags["rule_score"])
+                    stat_s.append(s_flags["statistical_score"])
+                    combined = r_flags["rule_score"] * 0.5 + s_flags["statistical_score"] * 0.5
+                    risk_s.append(combined)
+                    risk_c.append("HIGH" if combined >= 50 else "MEDIUM" if combined >= 25 else "LOW")
+                subset["risk_score"]        = risk_s
+                subset["risk_category"]     = risk_c
+                subset["rule_score"]        = rule_s
+                subset["statistical_score"] = stat_s
+                results["flagged_transactions"] = subset.sort_values("risk_score", ascending=False)
 
         # -- NETWORK intent -------------------------------------------------
         elif intent == "network":
