@@ -15,7 +15,7 @@
 
 | 👥 Team Name | 👤 Team Member | 🎓 Programme | 🆔 Registration Number | 📧 Email |
 |:---:|:---|:---:|:---:|:---|
-| **spirit** (107) | **Palchuri Rama Anirudh** | Integrated M.Tech CSE | **22MIA1071** | [palchuriramaanirudh@gmail.com](mailto:palchuriramaanirudh@gmail.com) |
+| **spirit** | **Palchuri Rama Anirudh** | Integrated M.Tech CSE | **22MIA1071** | [palchuriramaanirudh@gmail.com](mailto:palchuriramaanirudh@gmail.com) |
 | | **Chigurupati Venkat Sai Kiran** | M.Tech CSE (AI & ML) | **25MAI1006** | [chigurupativenkatsai@gmail.com](mailto:chigurupativenkatsai@gmail.com) |
 
 <br/>
@@ -43,6 +43,13 @@
 </div>
 
 > **Core takeaway:** The final hybrid ensemble reduces False Positives from **90** (rules baseline) down to **11** (ensemble), representing an **~88% reduction in false alerts** while nearly doubling overall recall (from 45.1% to 85.23%).
+
+---
+
+## 🔗 Live Dashboard Access
+
+Reviewers can access the live, interactive Streamlit workspace locally:
+👉 **[http://localhost:8501](http://localhost:8501)** *(Ensure the Streamlit server is active before clicking)*
 
 ---
 
@@ -100,6 +107,7 @@ The visual interface provides compliance officers and auditors with a unified th
 
 - [💡 Why This Matters](#-why-this-matters)
 - [🏗️ Pipeline Architecture](#️-pipeline-architecture)
+- [🔗 Live Dashboard Access](#-live-dashboard-access)
 - [🖥️ Interactive Dashboard Live View](#️-interactive-dashboard-live-view)
 - [📝 Real-Time Feature Dictionary & Schema](#-real-time-feature-dictionary--schema)
 - [🔬 Core Detection Engines — Technical & Mathematical Breakdown](#-core-detection-engines--technical--mathematical-breakdown)
@@ -397,7 +405,7 @@ aml-sentinel-graph-agent/
 
 <div align="center">
 
-**Built with ❤️ by Team spirit (Apex 107)**
+**Built with ❤️ by Team spirit**
 
 | Member | Programme | Registration Number | Email |
 |:---|:---:|:---:|:---|
