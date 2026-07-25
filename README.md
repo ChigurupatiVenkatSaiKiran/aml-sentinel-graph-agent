@@ -20,7 +20,7 @@
 
 <br/>
 
-> **AML Sentinel** is a state-of-the-art, agentic, multi-layer transaction monitoring and network intelligence platform designed for modern financial institutions. By combining deterministic natural language routing, deep graph community risk modeling, and machine learning, AML Sentinel delivers highly accurate threat detection with an **~88% reduction in compliance overhead and False Alerts**.
+> **AML Sentinel** is an intelligent, multi-layer transaction monitoring and network investigation platform. By combining rules, machine learning, and network graph analysis, AML Sentinel slashes False Alerts by **~88%** while identifying complex money laundering patterns in real-time.
 
 <br/>
 
@@ -28,10 +28,10 @@
 
 ---
 
-## 🔗 Live Dashboard Workspace
+## 🔗 Live Dashboard Access
 
 Reviewers can access the live, interactive Streamlit workspace locally:
-👉 **[http://localhost:8501](http://localhost:8501)** *(Run the Streamlit server before clicking)*
+👉 **[http://localhost:8501](http://localhost:8501)** *(Ensure the Streamlit server is active before clicking)*
 
 ---
 
@@ -89,14 +89,10 @@ The visual interface provides compliance officers and auditors with a unified th
 
 - [💡 System Innovation & Value Proposition](#-system-innovation--value-proposition)
 - [🏗️ Pipeline Architecture](#️-pipeline-architecture)
-- [📝 Real-Time Feature Dictionary & Schema](#-real-time-feature-dictionary--schema)
-- [🔬 Core Detection Engines — Technical & Mathematical Breakdown](#-core-detection-engines--technical--mathematical-breakdown)
-  - [1. Layer 1 & 2: Compliance Rules & Statistical Z-Score](#1-layer-1--2-compliance-rules--statistical-z-score)
-  - [2. Layer 3: Supervised Classification with SHAP Explainability](#2-layer-3-supervised-classification-with-shap-explainability)
-  - [3. Layer 4: Network Graph Topology Engine](#3-layer-4-network-graph-topology-engine)
-- [⚙️ Model Hyperparameters & Configuration](#️-model-hyperparameters--configuration)
-- [📊 System Evaluation Metrics & Ablation Studies](#-system-evaluation-metrics--ablation-studies)
-- [🛡️ Engineering: Reliability & Performance Features](#️-engineering-reliability--performance-features)
+- [📝 Feature Dictionary (Simplified)](#-feature-dictionary-simplified)
+- [🔬 Core Detection Layers (How It Works)](#-core-detection-layers-how-it-works)
+- [⚙️ System Evaluation Metrics & Performance](#️-system-evaluation-metrics--performance)
+- [🛡️ Engineering & Optimization Features](#️-engineering--optimization-features)
 - [📜 Regulatory Mapping Directory](#-regulatory-mapping-directory)
 - [🚀 Quick Start & Installation](#-quick-start--installation)
 - [📁 Repository Structure](#-repository-structure)
@@ -108,9 +104,9 @@ The visual interface provides compliance officers and auditors with a unified th
 
 Traditional transaction monitoring software evaluates rows in isolation, generating massive volumes of False Positives. **AML Sentinel** introduces a hybrid, multi-layer intelligence approach that scores, visualizes, and documents threat vectors simultaneously:
 
-* **⚡ Smart Intent Routing:** Natural language query routing lets analysts type questions (e.g. *"Show structuring alerts"*) and automatically directs the request to the correct sub-engine.
-* **🌐 Network-Wide Topology:** Resolves shell account routing by tracking structural network motifs (cycles, pass-through chains).
-* **📈 High Precision / High Recall:** Reaches an F1-Score of **`85.39%`** with **`~88%` fewer false alerts**, saving valuable compliance resources.
+* **💬 Natural Language Agent Interface:** Analysts can type questions in plain English (e.g. *"Analyze dataset for suspicious activity"*), and the agent dynamically parses the query and routes it to the correct detection layers.
+* **🌐 Network-Wide Topology:** Resolves shell account routing by tracking money flows across graph patterns (loops, pass-through chains).
+* **📈 High Precision / High Recall:** Reaches a high F1-Score of **`85.39%`** with **`~88%` fewer false alerts**, saving valuable compliance resources.
 
 ---
 
@@ -151,108 +147,65 @@ graph TD
 
 ---
 
-## 📝 Real-Time Feature Dictionary & Schema
+## 📝 Feature Dictionary (Simplified)
 
-The dataset loader extracts **20 features** covering transaction profiles, customer behavior, network centrality, and graph topology:
+AML Sentinel automatically extracts and analyzes the following metrics for every transaction:
 
-| Category | Feature Name | Data Type | Description |
-|:---|:---|:---:|:---|
-| **Transaction-Level** | `amount` | Float | Transaction value in USD. |
-| | `is_round_amount` | Binary | Flag indicating if amount is divisible by 100 (common in shell routing). |
-| | `is_structuring_amount` | Binary | Flag indicating if amount is between \$8,000 and \$9,999 (just below CTR limit). |
-| | `hour_of_day` | Integer | Hour of transaction (0-23) for temporal anomaly analysis. |
-| **Behavioral Windows** | `tx_count_1d` | Integer | Total transactions by sender in the last 24 hours. |
-| | `tx_count_7d` | Integer | Total transactions by sender in the last 7 days. |
-| | `tx_sum_1d` | Float | Total sum sent by sender in the last 24 hours. |
-| | `tx_sum_7d` | Float | Total sum sent by sender in the last 7 days. |
-| | `unique_recipients_7d` | Integer | Number of unique recipient accounts in the last 7 days. |
-| | `time_since_last_tx_hours`| Float | Hours since sender's previous transaction (default 999.0 for new senders). |
-| | `is_rapid_cashout` | Binary | Flag: account received money, then sent $\ge 85\%$ within 2 hours. |
-| **Network Centrality** | `pagerank_score` | Float | PageRank centrality of sender in the transaction network. |
-| | `in_degree` | Integer | Node in-degree (number of incoming transaction paths). |
-| | `out_degree` | Integer | Node out-degree (number of outgoing transaction paths). |
-| | `clustering_coefficient` | Float | Node clustering coefficient (local neighborhood density). |
-| | `community_risk_score` | Float | **Leakage-free** Louvain community risk density (fitted on training labels). |
-| **Graph Motifs** | `is_cycle_edge` | Binary | Flag indicating if the edge forms a round-tripping loop (length 3-5). |
-| | `is_fan_out_edge` | Binary | Flag indicating if the edge originates from a fan-out (smurfing) node ($\ge 4$ receivers). |
-| | `is_fan_in_edge` | Binary | Flag indicating if the edge routes into an aggregation node ($\ge 4$ senders). |
-| | `is_chain_edge` | Binary | Flag indicating if the edge belongs to a linear pass-through chain ($\ge 3$ hops). |
+| Category | Feature Name | Description |
+|:---|:---|:---|
+| **Transaction-Level** | `amount` | Transaction value in USD. |
+| | `is_round_amount` | Indicates if amount is divisible by 100 (common in shell routing). |
+| | `is_structuring_amount` | Indicates if amount is between \$8,000 and \$9,999 (just below CTR limit). |
+| | `hour_of_day` | Hour of transaction (0-23) for temporal anomaly analysis. |
+| **Customer Behavior** | `tx_count_1d` / `tx_count_7d` | Total transactions by sender in the last 24 hours / 7 days. |
+| | `tx_sum_1d` / `tx_sum_7d` | Total sum sent by sender in the last 24 hours / 7 days. |
+| | `unique_recipients_7d` | Number of unique recipient accounts in the last 7 days. |
+| | `time_since_last_tx_hours`| Hours since sender's previous transaction. |
+| | `is_rapid_cashout` | Indicates if account received money, then sent $\ge 85\%$ within 2 hours. |
+| **Network Position** | `pagerank_score` | PageRank score of the sender (identifies accounts funneling high traffic). |
+| | `in_degree` / `out_degree` | Number of incoming / outgoing transaction paths. |
+| | `clustering_coefficient` | Local neighborhood density (flags tightly-knit groups). |
+| | `community_risk_score` | Risk score of the sender's community based on historical labels. |
+| **Graph Motifs** | `is_cycle_edge` | Edge forms a circular round-tripping loop (length 3-5). |
+| | `is_fan_out_edge` | Edge originates from a fan-out node ($\ge 4$ receivers; flags smurfing). |
+| | `is_fan_in_edge` | Edge routes into an aggregation node ($\ge 4$ senders; flags collection). |
+| | `is_chain_edge` | Edge belongs to a linear pass-through chain ($\ge 3$ hops; flags layering). |
 
 ---
 
-## 🔬 Core Detection Engines — Technical & Mathematical Breakdown
+## 🔬 Core Detection Layers (How It Works)
 
-### 1. Layer 1 & 2: Compliance Rules & Statistical Z-Score
-* **Rules Engine:** Evaluates hard threshold rules such as rapid sweeps or transaction amounts just under reporting thresholds (e.g., structuring).
-* **Statistical Profiling:** Computes rolling customer-specific historical baselines. Anomalies are detected via moving window Z-scores:
-  $$Z = \frac{x_t - \mu_w}{\sigma_w}$$
-  where $\mu_w$ and $\sigma_w$ represent the rolling transaction sum mean and standard deviation over a $W$-day window.
+### Layer 1: Compliance Rules Engine
+Evaluates standard financial rules, flagging transactions just under reporting limits (structuring) or high-frequency sweeps.
 
-### 2. Layer 3: Supervised Classification with SHAP Explainability
-* Trains a non-linear **RandomForestClassifier** on transactional, behavioral, and structural graph features.
-* Avoids the "black-box" ML issue by using **TreeSHAP** to compute exact additive feature contributions for every alert. For a transaction $x$, the prediction $f(x)$ is decomposed as:
-  $$f(x) = \phi_0 + \sum_{i=1}^{M} \phi_i(x)$$
-  where $\phi_0$ is the base expectation and $\phi_i(x)$ is the SHAP value showing how feature $i$ shifted the risk score.
+### Layer 2: Statistical Baseline Profiling
+Computes moving averages of transaction behavior for each customer. It flags transactions that deviate significantly from a customer's typical spending patterns (Z-score).
 
-### 3. Layer 4: Network Graph Topology Engine
-Constructs a directed, weighted transaction network $G = (V, E)$ where nodes $V$ represent bank accounts and edges $E$ represent money flows.
+### Layer 3: Machine Learning Model (RandomForest)
+Uses a RandomForest classifier to identify non-linear combinations of features. We attach **SHAP explainability**, showing exactly which features pushed the transaction score toward "Fraud" or pulled it toward "Clean".
 
-#### A. Weighted PageRank (Centrality)
-Identifies core accounts funneling cash. PageRank is computed recursively:
-$$PR(u) = \frac{1-d}{|V|} + d \sum_{v \in B_u} \frac{PR(v)}{L(v)}$$
-where $B_u$ is the set of accounts sending money to $u$, $L(v)$ is the out-degree of $v$, and $d = 0.85$ is the damping factor.
-
-#### B. Louvain Community Detection & Modularity
-Groups accounts into transaction communities by maximizing Modularity ($Q$):
-$$Q = \frac{1}{2m} \sum_{i,j} \left[ A_{ij} - \frac{k_i k_j}{2m} \right] \delta(c_i, c_j)$$
-where $A_{ij}$ is the transaction volume between accounts $i$ and $j$, $k_i$ is the total volume of account $i$, $m$ is the network's total transaction volume, and $\delta$ flags community co-membership.
-* **Guilt by Association:** Community Risk is computed as the percentage of training-set fraud labels located within community $c$:
-  $$\text{Community Risk}(c) = \frac{\sum_{i \in c} y_{i}^{\text{train}}}{|c|}$$
-
-#### C. Topological Motif Traversal
-We traverse the graph to identify structural money laundering shapes:
-
-| Motif | Target Typology | Structural Pattern | Graphical Representation |
-| :--- | :--- | :--- | :--- |
-| **Fan-Out** | Smurfing (Placements) | Single source $\rightarrow$ Many recipients ($\ge 4$) | `(A) --> (B, C, D, E)` |
-| **Fan-In** | Aggregation (Layering) | Many senders $\rightarrow$ Single recipient ($\ge 4$) | `(B, C, D, E) --> (A)` |
-| **Chains** | Pass-Through Layering | Multi-hop linear nodes (in=1, out=1, depth $\ge 3$) | `(A) --> (B) --> (C) --> (D)` |
-| **Cycles** | Round-Tripping | Closed loop back to sender (length 3-5) | `(A) --> (B) --> (C) --> (A)` |
-
----
-
-## ⚙️ Model Hyperparameters & Configuration
-
-To ensure full reproducibility, the model parameters and ensemble fusion logic are configured as follows:
+### Layer 4: Network Graph Topology Engine
+Builds a transaction map where nodes are accounts and edges are money flows. It computes PageRank, segments accounts into communities (Louvain), and traverses the graph to detect structural money laundering shapes:
 
 ```
-RandomForestClassifier Configuration:
-  ├── n_estimators = 100
-  ├── max_depth = 10
-  ├── random_state = 42
-  └── class_weight = 'balanced'
-
-Ensemble Risk Scoring Weights (Fusing Layers 1-4):
-  ├── Layer 1 (Compliance Rules)  Weight = 0.15
-  ├── Layer 2 (Moving Z-Score)    Weight = 0.20
-  ├── Layer 3 (Random Forest ML)  Weight = 0.35
-  └── Layer 4 (Network Topology)  Weight = 0.30
-  └── Ensemble Threshold Trigger  Score  >= 35.0
+Fan-Out (Smurfing):       (A) --> (B, C, D, E)
+Fan-In (Aggregation):     (B, C, D, E) --> (A)
+Chains (Layering):        (A) --> (B) --> (C) --> (D)
+Cycles (Round-Tripping):   (A) --> (B) --> (C) --> (A)
 ```
 
 ---
 
-## 📊 System Evaluation Metrics & Ablation Studies
+## ⚙️ System Evaluation Metrics & Performance
 
-All metrics are measured on an **80/20 train/test split** and validated using **Stratified 5-Fold Cross-Validation** (with zero community label leakage) to simulate live compliance restrictions. 
+All metrics are measured on an **80/20 train/test split** and validated using **Stratified 5-Fold Cross-Validation** to simulate strict live banking constraints.
 
-### 1. Stratified 5-Fold Cross-Validation Metrics (Mean ± Std)
-* **CV Recall:** **`85.23% ± 3.98%`**
-* **CV Precision:** **`85.75% ± 4.26%`**
-* **CV F1 Score:** **`85.39% ± 3.05%`**
+* **CV Recall:** **`85.23%`** (Highly reliable detection rate)
+* **CV Precision:** **`85.75%`** (Extremely low false alarm rate)
+* **CV F1 Score:** **`85.39%`** (Balanced model accuracy)
 
-### 2. Held-Out 80/20 Test Split Ablation Study
-Tested on a held-out test split containing `51` positive fraud cases out of `1,691` total test transactions:
+### Ablation Study (Layer-by-Layer Performance)
+The table below shows how the system performs as we stack each detection layer:
 
 | Layer Mode | Recall (%) | Precision (%) | F1 Score (%) | False Positives |
 | :--- | :---: | :---: | :---: | :---: |
@@ -263,19 +216,17 @@ Tested on a held-out test split containing `51` positive fraud cases out of `1,6
 
 ---
 
-## 🛡️ Engineering: Reliability & Performance Features
+## 🛡️ Engineering & Optimization Features
 
-This platform was built to satisfy high performance and robustness benchmarks required by enterprise reviewers:
-
-* **⚡ Ultra-Fast Vectorized Feature Caching:** Replaced slow iterative loops with vectorized pandas calculations and a high-speed disk cache (`data/processed_cache.parquet`). This brought the dashboard load time down from **~30 seconds to <2 seconds** for all subsequent runs.
-* **🔒 Chronological Training Splits:** Transactions are sorted by time before splitting into train/test to prevent future transaction data from leaking into the historical training set.
-* **🧠 Explainer Cache Resilience:** Features an automated check to bypass bitsandbytes quantization conflicts, ensuring RandomForest classification and SHAP explainer runs reliably across any standard environment.
+* **⚡ Parquet Disk Caching:** We cache engineered features to disk (`processed_cache.parquet`). The dashboard starts and runs in **<2 seconds** after the initial load.
+* **🔒 Chronological Splitting:** Transactions are sorted by time before splitting into training/testing sets, ensuring no future transaction data leaks into the past.
+* **Resilient Environment Setup:** Automatically resolves package scaling dependencies (e.g. bitsandbytes/PyArrow configs) to run smoothly on any developer laptop.
 
 ---
 
 ## 📜 Regulatory Mapping Directory
 
-Identified AML typologies map to official compliance recommendations and laws:
+Identified AML typologies map directly to official compliance recommendations and laws:
 
 | Typology | FATF Standard Recommendation | BSA Legal Citation | Operational Compliance Protocol |
 | :--- | :--- | :--- | :--- |
@@ -288,9 +239,6 @@ Identified AML typologies map to official compliance recommendations and laws:
 ---
 
 ## 🚀 Quick Start & Installation
-
-### Prerequisites
-* Python 3.9, 3.10, or 3.11 installed.
 
 ### 1. Clone & Install
 ```bash
@@ -318,7 +266,7 @@ Open **`http://localhost:8501`** in your browser.
 
 ```
 aml-sentinel-graph-agent/
-├── app.py                      # Premium Streamlit web dashboard
+├── app.py                      # Streamlit web dashboard
 ├── evaluate.py                 # Evaluation metrics harness & model training
 ├── demo.py                     # Standalone CLI query demonstration
 ├── requirements.txt            # Package dependencies
