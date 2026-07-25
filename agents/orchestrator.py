@@ -236,6 +236,7 @@ class AMLOrchestrator:
         # -- STRUCTURING intent ---------------------------------------------
         elif intent == "structuring":
             subset = working_df[working_df["is_structuring_amount"] == 1]
+            node_scores = {}
             if not subset.empty:
                 scored = self._score_rows(subset)
                 results["flagged_transactions"] = scored.sort_values("risk_score", ascending=False)
@@ -247,8 +248,14 @@ class AMLOrchestrator:
                 results["sar_narrative"]   = generate_sar_narrative(
                     best, best["risk_score"], best["risk_category"], cfs
                 )
+                
+                for _, r in scored.iterrows():
+                    node_scores[r["sender_id"]]   = max(node_scores.get(r["sender_id"],   0.0), r["risk_score"])
+                    node_scores[r["receiver_id"]] = max(node_scores.get(r["receiver_id"], 0.0), r["risk_score"])
 
-            results["graph_html_path"] = generate_interactive_graph(self.graph.G, max_nodes=40)
+            results["graph_html_path"] = generate_interactive_graph(
+                self.graph.G, max_nodes=40, scores_dict=node_scores
+            )
 
         # -- AGGREGATION intent (e.g. "which customers made 10+ transactions under $10k")
         # Only invokes rule_engine + statistical. Skips ML model and graph traversal.
@@ -276,6 +283,15 @@ class AMLOrchestrator:
                 subset["rule_score"]        = rule_s
                 subset["statistical_score"] = stat_s
                 results["flagged_transactions"] = subset.sort_values("risk_score", ascending=False)
+
+                node_scores = {}
+                for _, r in subset.iterrows():
+                    node_scores[r["sender_id"]]   = max(node_scores.get(r["sender_id"],   0.0), r["risk_score"])
+                    node_scores[r["receiver_id"]] = max(node_scores.get(r["receiver_id"], 0.0), r["risk_score"])
+
+                results["graph_html_path"] = generate_interactive_graph(
+                    self.graph.G, max_nodes=40, scores_dict=node_scores
+                )
 
         # -- NETWORK intent -------------------------------------------------
         elif intent == "network":

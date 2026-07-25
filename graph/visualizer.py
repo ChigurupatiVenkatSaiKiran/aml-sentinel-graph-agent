@@ -63,15 +63,36 @@ def generate_interactive_graph(G: nx.DiGraph, center_node=None, max_nodes=50, sa
     for node in subgraph.nodes():
         score = scores_dict.get(node, 15.0) # default low risk
         
-        # Color schemes
+        # Color schemes using robust Vis.js dictionary format
         if score >= 70.0:
-            color = "#EF4444" # Red
+            color_dict = {
+                "background": "#EF4444", # Red
+                "border": "#B91C1C",
+                "highlight": {
+                    "background": "#F87171",
+                    "border": "#EF4444"
+                }
+            }
             size = 25
         elif score >= 40.0:
-            color = "#F59E0B" # Orange
+            color_dict = {
+                "background": "#F59E0B", # Orange
+                "border": "#D97706",
+                "highlight": {
+                    "background": "#FBBF24",
+                    "border": "#F59E0B"
+                }
+            }
             size = 20
         else:
-            color = "#10B981" # Green
+            color_dict = {
+                "background": "#10B981", # Green
+                "border": "#059669",
+                "highlight": {
+                    "background": "#34D399",
+                    "border": "#10B981"
+                }
+            }
             size = 15
             
         # Hover info
@@ -81,7 +102,7 @@ def generate_interactive_graph(G: nx.DiGraph, center_node=None, max_nodes=50, sa
             node, 
             label=node, 
             title=title_text, 
-            color=color, 
+            color=color_dict, 
             size=size,
             borderWidth=2,
             borderWidthSelected=4
