@@ -194,6 +194,37 @@ Below is the full query-to-explainability pipeline of AML Sentinel:
 
 </div>
 
+```mermaid
+graph TD
+    UserQuery["Analyst Query / Natural Language Input"] --> AgenticPlanner["Agentic Planner & Intent Router"]
+
+    subgraph Detection Stack ["Multi-Layer Detection Stack"]
+        AgenticPlanner --> Layer1["Layer 1: Compliance Rules Engine\nThreshold checks, CTR flags"]
+        AgenticPlanner --> Layer2["Layer 2: Statistical Z-Score Profiling\nBehavioral anomaly baseline"]
+        AgenticPlanner --> Layer3["Layer 3: RandomForest ML Model\n85.23% CV Recall classifier"]
+        AgenticPlanner --> Layer4["Layer 4: Graph Network Topology\nPageRank, Louvain, Motifs"]
+
+        Layer1 -->|Rule Flags| Scorer["Weighted Ensemble Scorer"]
+        Layer2 -->|Z-Score Anomalies| Scorer
+        Layer3 -->|ML Probabilities| Scorer
+        Layer4 -->|Graph Risk Signals| Scorer
+    end
+
+    Scorer --> RiskScore["Ensemble Risk Score: 0–100\nLOW / MEDIUM / HIGH"]
+
+    subgraph Output ["Explainability & Compliance Output"]
+        RiskScore --> SHAP["SHAP Feature Explanations"]
+        RiskScore --> CF["Counterfactual Guidance"]
+        RiskScore --> Reg["FATF / BSA Regulatory Mapper"]
+        RiskScore --> SAR["Auto-Generated SAR Narrative"]
+    end
+
+    SHAP --> UI["Live Analyst Dashboard"]
+    CF --> UI
+    Reg --> UI
+    SAR --> UI
+```
+
 ---
 
 ## 📂 Dataset Overview & Data Source
