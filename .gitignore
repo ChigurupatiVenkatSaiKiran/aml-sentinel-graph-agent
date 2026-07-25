@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.st_cache/
+.streamlit/
+data/processed_cache.parquet
+data/processed_cache.parquet.mtime
+detection/*.joblib
+.ipynb_checkpoints/
+.vscode/
+.idea/
+*.log
