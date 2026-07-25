@@ -28,6 +28,24 @@
 
 ---
 
+## ⚙️ Performance at a Glance
+
+<div align="center">
+
+| 📊 Metric | 🎯 AML Sentinel Score |
+| :--- | :---: |
+| **Recall (5-Fold CV)** | 🏆 **85.23% ± 3.98%** |
+| **Precision (5-Fold CV)** | 🏆 **85.75% ± 4.26%** |
+| **F1-Score (5-Fold CV)** | 🏆 **85.39% ± 3.05%** |
+| **False Positives Eliminated** | 🏆 **~88% Reduction** |
+| **False Alert Count (Holdout)** | **11** *(down from 90 with rules-only baseline)* |
+
+</div>
+
+> ✅ **In plain English:** Out of every 100 real fraud cases, our system correctly catches **85**. Out of every 100 alerts it raises, **85 are genuine fraud** — compliance officers waste almost no time chasing false leads. The ± values show our results are **consistent across all 5 test folds**, not just a one-time lucky result.
+
+---
+
 ## 🔗 Live Dashboard Access
 
 Reviewers can access the live, interactive Streamlit workspace locally:
@@ -200,26 +218,6 @@ AML Sentinel operates a sequential, four-layer intelligence funnel. Each layer a
      * **Fan-In (Aggregation):** Multiple accounts funneling money into a single collector `(B, C, D, E) --> (A)`.
      * **Chains (Layering):** Multi-hop pass-through nodes designed to hide origins `(A) --> (B) --> (C) --> (D)`.
      * **Cycles (Round-Tripping):** Circular loops routing funds back to the sender `(A) --> (B) --> (C) --> (A)`.
-
----
-
-## ⚙️ System Evaluation Metrics & Performance
-
-All metrics are validated using **Stratified 5-Fold Cross-Validation** — the gold standard for evaluating ML systems fairly, ensuring results are reliable and not just lucky on one test split.
-
-<div align="center">
-
-| 📊 Metric | 🎯 AML Sentinel Final Score |
-| :--- | :---: |
-| **Recall (5-Fold CV)** | 🏆 **85.23%** |
-| **Precision (5-Fold CV)** | 🏆 **85.75%** |
-| **F1-Score (5-Fold CV)** | 🏆 **85.39%** |
-| **False Positives Eliminated** | 🏆 **~88% Reduction** |
-| **False Alert Count** | **11** *(down from 90 with rules-only)* |
-
-</div>
-
-> ✅ **What this means in simple terms:** Out of every 100 real fraud cases, our system correctly catches **85**. Out of every 100 alerts it raises, **85 are genuine fraud** — so compliance officers waste almost no time chasing false leads.
 
 ---
 
