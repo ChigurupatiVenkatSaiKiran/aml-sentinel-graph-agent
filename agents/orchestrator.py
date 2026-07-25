@@ -194,7 +194,6 @@ class AMLOrchestrator:
         # Apply date filter to working dataframe if specified
         working_df = self.df
         if date_days:
-            import pandas as pd
             cutoff = working_df["timestamp"].max() - pd.Timedelta(days=date_days)
             working_df = working_df[working_df["timestamp"] >= cutoff]
 
