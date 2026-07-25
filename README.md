@@ -171,28 +171,35 @@ AML Sentinel automatically extracts and analyzes the following metrics for every
 | | `is_fan_in_edge` | Edge routes into an aggregation node ($\ge 4$ senders; flags collection). |
 | | `is_chain_edge` | Edge belongs to a linear pass-through chain ($\ge 3$ hops; flags layering). |
 
----
-
 ## 🔬 Core Detection Layers (How It Works)
 
-### Layer 1: Compliance Rules Engine
-Evaluates standard financial rules, flagging transactions just under reporting limits (structuring) or high-frequency sweeps.
+AML Sentinel operates a sequential, four-layer intelligence funnel. Each layer adds a higher level of complexity, filtering out false alerts while capturing hidden anomalies:
 
-### Layer 2: Statistical Baseline Profiling
-Computes moving averages of transaction behavior for each customer. It flags transactions that deviate significantly from a customer's typical spending patterns (Z-score).
+### 🛡️ Layer 1: Rule-Based Compliance Engine
+* **What it does:** Evaluates individual transactions against strict compliance thresholds (the traditional banking approach).
+* **How it works:** Checks simple, high-confidence flags. For example, it checks if a transaction is between \$8,000 and \$9,999 (structuring), indicating an intentional attempt to bypass the \$10,000 Currency Transaction Report (CTR) filing limit.
+* **Core Benefit:** Instantly catches obvious, high-risk threshold violations.
 
-### Layer 3: Machine Learning Model (RandomForest)
-Uses a RandomForest classifier to identify non-linear combinations of features. We attach **SHAP explainability**, showing exactly which features pushed the transaction score toward "Fraud" or pulled it toward "Clean".
+### 📈 Layer 2: Statistical Customer Profiling (Moving Z-Score)
+* **What it does:** Tracks behavioral spikes tailored to each individual account.
+* **How it works:** Rather than using universal limits, it calculates a customer's rolling 7-day average transaction amount. If a new transaction suddenly spikes multiple standard deviations above their typical historical baseline (their Z-Score), it triggers a behavioral flag.
+* **Core Benefit:** Adapts dynamically to normal spending variations, catching anomalous account takeovers or sudden sweeps.
 
-### Layer 4: Network Graph Topology Engine
-Builds a transaction map where nodes are accounts and edges are money flows. It computes PageRank, segments accounts into communities (Louvain), and traverses the graph to detect structural money laundering shapes:
+### 🧠 Layer 3: Machine Learning Model (RandomForest) with SHAP Explainability
+* **What it does:** Analyzes complex, multi-dimensional correlations that traditional static rules miss.
+* **How it works:** Fuses transaction limits, behavioral rolling windows, time intervals, and network features into a non-linear Random Forest classifier model.
+* **💡 TreeSHAP local explainability:** To avoid "black-box" machine learning, we compute exact local feature contributions for every alert. The analyst sees exactly how much each feature shifted the risk score (e.g., a high amount increased risk by +18%, but a clean rolling frequency pulled it down by -5%), offering full compliance transparency.
 
-```
-Fan-Out (Smurfing):       (A) --> (B, C, D, E)
-Fan-In (Aggregation):     (B, C, D, E) --> (A)
-Chains (Layering):        (A) --> (B) --> (C) --> (D)
-Cycles (Round-Tripping):   (A) --> (B) --> (C) --> (A)
-```
+### 📡 Layer 4: Network Graph Topology Engine
+* **What it does:** Builds a directed transaction graph where accounts are nodes and transactions are edges, tracing money laundering paths.
+* **How it works:** Computes three distinct graph theory metrics:
+  1. **PageRank Centrality:** Traces the flow of funds to identify key accounts funneling high volumes of money.
+  2. **Louvain Community Detection:** Automatically segments the entire network into transaction communities. It calculates "Guilt-by-Association" risk based on the density of known bad actors in a community, flagging accounts that interact in high-risk circles.
+  3. **Topological Motif Traversal:** Scans the network structure to identify specific money routing shapes:
+     * **Fan-Out (Smurfing):** A single source splitting funds into multiple accounts `(A) --> (B, C, D, E)`.
+     * **Fan-In (Aggregation):** Multiple accounts funneling money into a single collector `(B, C, D, E) --> (A)`.
+     * **Chains (Layering):** Multi-hop pass-through nodes designed to hide origins `(A) --> (B) --> (C) --> (D)`.
+     * **Cycles (Round-Tripping):** Circular loops routing funds back to the sender `(A) --> (B) --> (C) --> (A)`.
 
 ---
 
