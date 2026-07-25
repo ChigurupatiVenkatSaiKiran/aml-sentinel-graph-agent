@@ -161,15 +161,15 @@ AML Sentinel automatically extracts and analyzes the following metrics for every
 | | `tx_sum_1d` / `tx_sum_7d` | Total sum sent by sender in the last 24 hours / 7 days. |
 | | `unique_recipients_7d` | Number of unique recipient accounts in the last 7 days. |
 | | `time_since_last_tx_hours`| Hours since sender's previous transaction. |
-| | `is_rapid_cashout` | Indicates if account received money, then sent $\ge 85\%$ within 2 hours. |
+| | `is_rapid_cashout` | Indicates if account received money, then sent >= 85% within 2 hours. |
 | **Network Position** | `pagerank_score` | PageRank score of the sender (identifies accounts funneling high traffic). |
 | | `in_degree` / `out_degree` | Number of incoming / outgoing transaction paths. |
 | | `clustering_coefficient` | Local neighborhood density (flags tightly-knit groups). |
 | | `community_risk_score` | Risk score of the sender's community based on historical labels. |
 | **Graph Motifs** | `is_cycle_edge` | Edge forms a circular round-tripping loop (length 3-5). |
-| | `is_fan_out_edge` | Edge originates from a fan-out node ($\ge 4$ receivers; flags smurfing). |
-| | `is_fan_in_edge` | Edge routes into an aggregation node ($\ge 4$ senders; flags collection). |
-| | `is_chain_edge` | Edge belongs to a linear pass-through chain ($\ge 3$ hops; flags layering). |
+| | `is_fan_out_edge` | Edge originates from a fan-out node (>= 4 receivers; flags smurfing). |
+| | `is_fan_in_edge` | Edge routes into an aggregation node (>= 4 senders; flags collection). |
+| | `is_chain_edge` | Edge belongs to a linear pass-through chain (>= 3 hops; flags layering). |
 
 ## 🔬 Core Detection Layers (How It Works)
 
