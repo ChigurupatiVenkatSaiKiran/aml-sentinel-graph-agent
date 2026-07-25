@@ -186,38 +186,13 @@ Traditional transaction monitoring software evaluates rows in isolation, generat
 
 ## 🏗️ Pipeline Architecture
 
-Below is the query-to-explainability pipeline of AML Sentinel:
+Below is the full query-to-explainability pipeline of AML Sentinel:
 
-```mermaid
-graph TD
-    UserQuery[Analyst Query / Search Input] --> AgenticPlanner[Agentic Planner & Routing Engine]
-    
-    subgraph Multi-Layer Detection Stack
-        AgenticPlanner --> Layer1[Layer 1: Compliance Rules Engine]
-        AgenticPlanner --> Layer2[Layer 2: Statistical Baseline Profiling]
-        AgenticPlanner --> Layer3[Layer 3: RandomForest ML Model]
-        AgenticPlanner --> Layer4[Layer 4: Network Graph Topology Engine]
-        
-        Layer1 -->|Trigger Rule Flags| Scorer[Weighted Ensemble Scorer]
-        Layer2 -->|Anomaly Z-Scores| Scorer
-        Layer3 -->|ML Probabilities| Scorer
-        Layer4 -->|PageRank, Louvain Risk & Motifs| Scorer
-    end
+<div align="center">
 
-    Scorer --> RiskScore[Ensemble Risk Score: 0-100]
-    
-    subgraph Explainability & Narrative Output
-        RiskScore --> SHAP[Local SHAP Contributions]
-        RiskScore --> Counterfactual[Counterfactual Recommendations]
-        RiskScore --> Compliance[FATF / BSA Regulatory Mapper]
-        RiskScore --> SAR[Auto-Generated SAR Narrative Draft]
-    end
+![AML Sentinel Architecture Diagram](figures/architecture.png)
 
-    SHAP --> UI[Premium Glassmorphic Analyst Dashboard]
-    Counterfactual --> UI
-    Compliance --> UI
-    SAR --> UI
-```
+</div>
 
 ---
 
