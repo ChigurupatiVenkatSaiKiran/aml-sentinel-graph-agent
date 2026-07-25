@@ -107,14 +107,50 @@ The visual interface provides compliance officers and auditors with a unified th
 
 - [💡 System Innovation & Value Proposition](#-system-innovation--value-proposition)
 - [🏗️ Pipeline Architecture](#️-pipeline-architecture)
+- [📂 Dataset Overview](#-dataset-overview)
 - [📝 Feature Dictionary (Simplified)](#-feature-dictionary-simplified)
 - [🔬 Core Detection Layers (How It Works)](#-core-detection-layers-how-it-works)
-- [⚙️ System Evaluation Metrics & Performance](#️-system-evaluation-metrics--performance)
 - [🛡️ Engineering & Optimization Features](#️-engineering--optimization-features)
 - [📜 Regulatory Mapping Directory](#-regulatory-mapping-directory)
 - [🚀 Quick Start & Installation](#-quick-start--installation)
 - [📁 Repository Structure](#-repository-structure)
 - [🧰 Tech Stack](#-tech-stack)
+
+---
+
+## 📂 Dataset Overview
+
+The system is trained and evaluated on a **synthetic but realistic financial transaction dataset** generated to reflect real-world banking behavior. Synthetic data was used to ensure complete privacy compliance while still capturing genuine money laundering patterns.
+
+<div align="center">
+
+| 📋 Property | 📊 Value |
+| :--- | :---: |
+| **Total Transactions** | **8,453** |
+| **Fraudulent Transactions** | **257** (3.04%) |
+| **Normal Transactions** | **8,196** (96.96%) |
+| **Date Range** | Jan 2024 – ongoing |
+| **Number of Features** | **9 raw columns** → **20 engineered features** |
+| **Transaction Categories** | retail, p2p, payroll, bills, business, tuition, mortgage |
+| **Fraud Labels** | Binary (0 = normal, 1 = fraud) with AML typology tags |
+
+</div>
+
+### Dataset Columns
+
+| Column | What It Means |
+| :--- | :--- |
+| `transaction_id` | Unique ID for each transaction |
+| `timestamp` | Exact date and time the transaction happened |
+| `sender_id` | Account ID of the person sending money |
+| `receiver_id` | Account ID of the person receiving money |
+| `amount` | Transaction amount in currency units |
+| `category` | Type of payment (retail, payroll, p2p, etc.) |
+| `is_fraud` | Ground truth label — 1 if fraudulent, 0 if normal |
+| `typology` | AML pattern type (structuring, smurfing, layering, etc.) or "normal" |
+| `case_id` | Groups related transactions belonging to the same fraud case |
+
+> ⚠️ **Note on Class Imbalance:** Only **3.04%** of transactions are fraud — this is realistic for real banking environments. Our system is specifically designed and tuned to handle this imbalance without missing genuine fraud cases.
 
 ---
 
