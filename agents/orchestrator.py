@@ -62,8 +62,22 @@ class AMLOrchestrator:
                 num *= 7
             plan["filters"]["date_days"] = num
 
-        # 1. Structuring / threshold queries
-        if any(w in q for w in ["structur", "threshold", "under 10", "under $10", "8000", "9000", "ctr"]):
+        # 1. Aggregation / count queries - checked FIRST to avoid collision
+        # e.g. "Which customers made 10+ transactions under $10,000?" -> rules only, no ML
+        if re.search(r"\d+\+?\s*transaction|how many|count\b|frequen|velocity", q):
+            plan.update(
+                intent="aggregation",
+                components=["rule_engine", "statistical"],
+                reasoning=(
+                    "Detected AGGREGATION / COUNT query -> running rule-based threshold aggregation "
+                    "and statistical frequency profiling only. "
+                    "ML model and graph traversal not required for this query type."
+                ),
+            )
+            return plan
+
+        # 2. Structuring / threshold queries
+        if any(w in q for w in ["structur", "threshold", "under $10", "8000", "9000", "ctr"]):
             plan.update(
                 intent="structuring",
                 components=["rule_engine", "graph_detector"],
@@ -72,19 +86,6 @@ class AMLOrchestrator:
                     "and graph fan-out pattern matching. "
                     + (f"Applying date filter: last {plan['filters'].get('date_days', 'N/A')} days. " if "date_days" in plan["filters"] else "")
                     + "Bypassing broad statistical profiling and full-dataset ML sweep."
-                ),
-            )
-            return plan
-
-        # 2. Aggregation / threshold count queries (e.g. "10+ transactions under $10,000")
-        if re.search(r"\d+\+?\s*transaction|how many|count|frequen|velocity", q):
-            plan.update(
-                intent="aggregation",
-                components=["rule_engine", "statistical"],
-                reasoning=(
-                    "Detected AGGREGATION / COUNT query -> running rule-based threshold aggregation "
-                    "and statistical frequency profiling only. "
-                    "ML model and graph traversal not required for this query type."
                 ),
             )
             return plan
