@@ -3,7 +3,6 @@ __pycache__/
 *.pyo
 *.pyd
 .st_cache/
-.streamlit/
 data/processed_cache.parquet
 data/processed_cache.parquet.mtime
 detection/*.joblib
