@@ -426,7 +426,8 @@ with tab1:
     with col2:
         run_btn = st.button("Run Query", use_container_width=True, type="primary")
         
-    if run_btn and query_input != st.session_state.user_query:
+    # Execute if input changed (e.g., pressed Enter) OR if Run Query button was clicked
+    if (query_input != st.session_state.user_query) or run_btn:
         st.session_state.user_query = query_input
         with st.spinner("Analyzing intent and executing agent plan..."):
             st.session_state.plan = orchestrator.parse_intent(query_input)
