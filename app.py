@@ -394,11 +394,12 @@ if selected_shortcut != "— Select —" and selected_shortcut != st.session_sta
     st.session_state.exec_results = orchestrator.execute_plan(st.session_state.plan)
 
 # ─── Navigation Tabs ──────────────────────────────────────────────────────────
-tab1, tab2, tab3, tab4 = st.tabs([
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
     "🚨 Alert Center & Network Graph",
     "🔬 Deep Investigation & Explainability",
     "📊 Model Performance & Methodology",
-    "📜 Regulatory Reference Mapper"
+    "📜 Regulatory Reference Mapper",
+    "🏆 Pitch Deck / Presentation"
 ])
 
 plan = st.session_state.plan
@@ -714,7 +715,23 @@ with tab4:
             with col_reg1:
                 st.markdown(f"**FATF Standard Citation:**\n`{details['fatf']}`")
                 st.markdown(f"**FinCEN Advisory Directive:**\n`{details['fincen']}`")
-            with col_reg2:
-                st.markdown(f"**BSA Legal Citation:**\n`{details['bsa']}`")
-                st.markdown(f"**Operational Protocol / Active Action:**\n*{details['action_required']}*")
+        with col_reg2:
+            st.markdown(f"**BSA Legal Citation:**\n`{details['bsa']}`")
+            st.markdown(f"**Operational Protocol / Active Action:**\n*{details['action_required']}*")
 
+# ─── TAB 5: Pitch Deck ────────────────────────────────────────────────────────
+with tab5:
+    import streamlit.components.v1 as components
+    import os
+    
+    st.markdown("### 🏆 Final Pitch Deck")
+    st.markdown("Scroll down to view our exact alignment with the Hackathon rubric.")
+    
+    # Read the premium HTML presentation created specifically for judges
+    presentation_path = os.path.join(os.path.dirname(__file__), "presentation.html")
+    if os.path.exists(presentation_path):
+        with open(presentation_path, "r", encoding="utf-8") as f:
+            html_content = f.read()
+        components.html(html_content, height=900, scrolling=True)
+    else:
+        st.error("presentation.html not found. Please ensure it is pushed to the repository.")
