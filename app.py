@@ -390,8 +390,10 @@ if "user_query" not in st.session_state:
 # Handle sidebar quick template shortcuts
 if selected_shortcut != "— Select —" and selected_shortcut != st.session_state.user_query:
     st.session_state.user_query = selected_shortcut
-    st.session_state.plan = orchestrator.parse_intent(selected_shortcut)
-    st.session_state.exec_results = orchestrator.execute_plan(st.session_state.plan)
+    with st.spinner("Analyzing intent and executing agent plan..."):
+        st.session_state.plan = orchestrator.parse_intent(selected_shortcut)
+        st.session_state.exec_results = orchestrator.execute_plan(st.session_state.plan)
+    st.rerun()
 
 # ─── Navigation Tabs ──────────────────────────────────────────────────────────
 tab1, tab2, tab3, tab4 = st.tabs([
@@ -412,17 +414,23 @@ with tab1:
     st.markdown("### 🔍 Transaction Monitoring Alerts Workspace")
     
     # Query input
-    query_input = st.text_input(
-        "Natural language investigation query / search account:",
-        value=st.session_state.user_query,
-        key="nl_query_input",
-        placeholder="e.g. 'Is customer ACC10822 suspicious?' or 'Show transaction network'"
-    )
-    
-    if query_input != st.session_state.user_query:
+    col1, col2 = st.columns([4, 1])
+    with col1:
+        query_input = st.text_input(
+            "Natural language investigation query / search account:",
+            value=st.session_state.user_query,
+            key="nl_query_input",
+            placeholder="e.g. 'Is customer ACC10822 suspicious?' or 'Show transaction network'",
+            label_visibility="collapsed"
+        )
+    with col2:
+        run_btn = st.button("Run Query", use_container_width=True, type="primary")
+        
+    if run_btn and query_input != st.session_state.user_query:
         st.session_state.user_query = query_input
-        st.session_state.plan = orchestrator.parse_intent(query_input)
-        st.session_state.exec_results = orchestrator.execute_plan(st.session_state.plan)
+        with st.spinner("Analyzing intent and executing agent plan..."):
+            st.session_state.plan = orchestrator.parse_intent(query_input)
+            st.session_state.exec_results = orchestrator.execute_plan(st.session_state.plan)
         st.rerun()
 
     # Agent Planner Trace
