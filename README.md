@@ -28,6 +28,17 @@
 
 ---
 
+## 👥 Team Contributions & Work Distribution
+
+> Both team members actively contributed across all phases — from data design to final dashboard delivery. Below is a clear breakdown of individual ownership.
+
+| 🧑‍💻 Team Member | 🔧 Primary Responsibilities |
+|:---|:---|
+| **Chigurupati Venkat Sai Kiran** (25MAI1006) | • Designed and implemented the **Agentic Orchestrator** — dynamic intent routing, 5 query types, date filters (`agents/orchestrator.py`) <br>• Built the **RandomForest ML Classifier** with 5-fold stratified cross-validation (`detection/ml_models.py`) <br>• Implemented the **Graph Network Topology Engine** — PageRank, Louvain community detection, and motif detection (`graph/`) <br>• Developed the **Weighted Ensemble Scorer** combining all 4 detection layers (`detection/ensemble_scorer.py`) <br>• Built the full **Streamlit Dashboard** — glassmorphic UI, Plotly charts, Vis.js interactive network (`app.py`) <br>• Managed GitHub repository, evaluation harness, and final integration |
+| **Palchuri Rama Anirudh** (22MIA1071) | • Designed the **Synthetic Transaction Dataset** — 5 AML typologies (structuring, smurfing, layering, rapid cashout, round-tripping), 8,453 records (`data/synthetic_generator.py`) <br>• Built the **Compliance Rules Engine** — CTR thresholds, structuring detection, velocity checks (`detection/rule_engine.py`) <br>• Implemented **Statistical Z-Score Anomaly Detection** — behavioral baseline profiling, peer group comparison (`detection/statistical.py`) <br>• Created the **Feature Engineering Pipeline** — 9 AML-specific features including rolling sums, velocity, and rapid cashout flags (`data/feature_engineering.py`) <br>• Built **Explainability Components** — SHAP local explanations, counterfactual recommendations, Auto-SAR narrative generator (`explainability/`) <br>• Implemented the **FATF / BSA Regulatory Mapper** linking detected patterns to real compliance frameworks (`regulatory/`) |
+
+---
+
 ## ⚙️ Performance at a Glance
 
 <div align="center">
