@@ -3,6 +3,7 @@ AML Sentinel - Full Integration Test Suite
 Validates every module, data pipeline, detection engine, orchestrator, and output.
 """
 import sys, os
+import pandas as pd
 os.chdir(r'c:\Users\chigu\OneDrive\Desktop\hackathon\aml-sentinel')
 
 passed = 0

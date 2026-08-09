@@ -430,7 +430,6 @@ with tab1:
     # Execute if input changed (e.g., pressed Enter) OR if Run Query button was clicked
     if (query_input != st.session_state.user_query) or run_btn:
         st.session_state.user_query = query_input
-        st.session_state.nl_query_input = query_input  # Sync input box state
         with st.spinner("Analyzing intent and executing agent plan..."):
             st.session_state.plan = orchestrator.parse_intent(query_input)
             st.session_state.exec_results = orchestrator.execute_plan(st.session_state.plan)
