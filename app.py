@@ -383,14 +383,15 @@ st.markdown("<br>", unsafe_allow_html=True)
 
 # ─── Session State & Caching ──────────────────────────────────────────────────
 if "user_query" not in st.session_state:
-    st.session_state.user_query = "Analyse whole dataset for suspicious activity"
-    st.session_state.plan = orchestrator.parse_intent(st.session_state.user_query)
+    # Use a fast entity lookup as default — avoids heavy 500-row broad scan on startup
+    default_q = "Is customer ACC10822 suspicious?"
+    st.session_state.user_query = default_q
+    st.session_state.plan = orchestrator.parse_intent(default_q)
     st.session_state.exec_results = orchestrator.execute_plan(st.session_state.plan)
 
 # Handle sidebar quick template shortcuts
 if selected_shortcut != "— Select —" and selected_shortcut != st.session_state.user_query:
     st.session_state.user_query = selected_shortcut
-    st.session_state.nl_query_input = selected_shortcut  # Sync the text input box state
     with st.spinner("Analyzing intent and executing agent plan..."):
         st.session_state.plan = orchestrator.parse_intent(selected_shortcut)
         st.session_state.exec_results = orchestrator.execute_plan(st.session_state.plan)
