@@ -13,6 +13,16 @@
 
 <br/>
 
+## 🔴 LIVE DEMO
+
+<div align="center">
+
+### [![🚀 Open Live Dashboard](https://img.shields.io/badge/🚀%20%20OPEN%20LIVE%20DASHBOARD-aml--sentinel.streamlit.app-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white&labelColor=black)](https://aml-sentinel.streamlit.app/)
+
+**➡️ [https://aml-sentinel.streamlit.app/](https://aml-sentinel.streamlit.app/)**
+
+</div>
+
 | 👥 Team Name | 👤 Team Member | 🎓 Programme | 🆔 Registration Number | 📧 Email |
 |:---:|:---|:---:|:---:|:---|
 | **spirit** | **Chigurupati Venkat Sai Kiran** | M.Tech CSE (AI & ML) | **25MAI1006** | [chigurupativenkatsai@gmail.com](mailto:chigurupativenkatsai@gmail.com) |
