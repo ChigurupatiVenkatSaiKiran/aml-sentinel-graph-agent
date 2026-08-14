@@ -67,14 +67,6 @@
 
 ---
 
-## 🔗 Live Dashboard Access
-
-Reviewers can access the live, interactive application deployed on Streamlit Cloud here:
-👉 **[https://aml-sentinel.streamlit.app/](https://aml-sentinel.streamlit.app/)** 
-
-*(Alternatively, you can run it locally using `streamlit run app.py` which will open at `http://localhost:8501`)*
-
----
 
 ## ⚡ Key Highlights
 
