@@ -211,12 +211,12 @@ Below is the full query-to-explainability pipeline of AML Sentinel:
 
 <br/><br/>
 
-### 📐 Detailed Architectural Specification (IEEE Publication Format)
+### 📐 Detailed Architectural Specification
 
-<img src="figures/architecture_ieee.jpg" alt="AML Sentinel IEEE System Architecture Diagram" width="950" />
+<img src="figures/architecture_ieee.jpg" alt="AML Sentinel System Architecture Diagram" width="950" />
 
 <br/>
-<em><b>Fig. 1:</b> Architectural Overview of AML Sentinel — Multi-Layer Agentic Financial Crime Intelligence & Detection Pipeline (IEEE Format).</em>
+<em><b>Fig. 1:</b> Architectural Overview of AML Sentinel — Multi-Layer Agentic Financial Crime Intelligence & Detection Pipeline.</em>
 
 </div>
 
