@@ -205,6 +205,14 @@ Below is the full query-to-explainability pipeline of AML Sentinel:
 
 <div align="center">
 
+### 🌐 System Architecture & Multi-Layer Pipeline
+
+<img src="figures/architecture.png" alt="AML Sentinel System Architecture Diagram" width="900" />
+
+<br/><br/>
+
+### 📐 Detailed Architectural Specification (IEEE Publication Format)
+
 <img src="figures/architecture_ieee.jpg" alt="AML Sentinel IEEE System Architecture Diagram" width="950" />
 
 <br/>
