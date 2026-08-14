@@ -130,7 +130,7 @@ The visual interface provides compliance officers and auditors with a unified th
 - [📜 Regulatory Mapping Directory](#-regulatory-mapping-directory)
 - [🚀 Quick Start & Installation](#-quick-start--installation)
 - [📁 Repository Structure](#-repository-structure)
-- [🧰 Tech Stack & Tools Disclosure](#-tech-stack--tools-disclosure)
+- [🧰 Tech Stack & Dependencies](#-tech-stack--dependencies)
 
 ---
 
@@ -355,9 +355,7 @@ aml-sentinel-graph-agent/
 
 ---
 
-## 🧰 Tech Stack & Tools Disclosure
-
-> 📌 **Full disclosure of all external tools, libraries, and AI assistance used in this project, as required by hackathon rules.**
+## 🧰 Tech Stack & Dependencies
 
 ### Libraries & Frameworks
 
@@ -372,12 +370,6 @@ aml-sentinel-graph-agent/
 | **Data Processing** | Pandas / NumPy | latest | Feature engineering, rolling windows, aggregations |
 | **Parquet Cache** | PyArrow | ≥14.0 | Fast disk caching for engineered features |
 | **Community Detection** | Python-Louvain | ≥0.15 | Graph-based account cluster detection |
-
-### AI Assistance Disclosure
-
-| Tool | Usage |
-|---|---|
-| **Google Gemini (Antigravity IDE)** | Agentic coding assistant used during development for code generation, debugging, README writing, and feature engineering suggestions |
 
 ### Open-Source & Free Resources Used
 
