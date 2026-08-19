@@ -1,340 +1,313 @@
-<svg width="980" height="820" viewBox="0 0 980 820" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
+<svg width="980" height="780" viewBox="0 0 980 780" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif">
 <defs>
   <!-- Connector Arrow Markers -->
   <marker id="ar" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
     <path d="M1.5 1.5L8.5 5L1.5 8.5" fill="none" stroke="#64748B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
   </marker>
-  <marker id="ar-accent" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-    <path d="M1.5 1.5L8.5 5L1.5 8.5" fill="none" stroke="#4F46E5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  <marker id="ar-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M1.5 1.5L8.5 5L1.5 8.5" fill="none" stroke="#2563EB" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
   </marker>
 
-  <!-- Clean Subtle Shadow -->
+  <!-- Crisp IEEE drop shadows -->
   <filter id="sh" x="-4%" y="-4%" width="108%" height="112%">
     <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#0F172A" flood-opacity="0.06"/>
   </filter>
   <filter id="sh-card" x="-4%" y="-4%" width="108%" height="112%">
-    <feDropShadow dx="0" dy="3" stdDeviation="4.5" flood-color="#0F172A" flood-opacity="0.09"/>
+    <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#0F172A" flood-opacity="0.08"/>
   </filter>
 
-  <!-- Modern Linear Gradients -->
+  <!-- Color Accents -->
   <linearGradient id="g-hdr" x1="0" y1="0" x2="1" y2="0">
     <stop offset="0%" stop-color="#0F172A"/><stop offset="100%" stop-color="#1E293B"/>
   </linearGradient>
-  <linearGradient id="g-inp" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#0284C7"/><stop offset="100%" stop-color="#38BDF8"/>
-  </linearGradient>
-  <linearGradient id="g-rtr" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#4F46E5"/><stop offset="100%" stop-color="#7C3AED"/>
-  </linearGradient>
-  <linearGradient id="g-l1" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#DC2626"/><stop offset="100%" stop-color="#F87171"/>
-  </linearGradient>
-  <linearGradient id="g-l2" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#D97706"/><stop offset="100%" stop-color="#FBBF24"/>
-  </linearGradient>
-  <linearGradient id="g-l3" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#059669"/><stop offset="100%" stop-color="#34D399"/>
-  </linearGradient>
-  <linearGradient id="g-l4" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#0D9488"/><stop offset="100%" stop-color="#2DD4BF"/>
-  </linearGradient>
-  <linearGradient id="g-scr" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#1E1B4B"/><stop offset="100%" stop-color="#312E81"/>
-  </linearGradient>
-  <linearGradient id="g-xai" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#6B21A8"/><stop offset="100%" stop-color="#9333EA"/>
-  </linearGradient>
-  <linearGradient id="g-ui" x1="0" y1="0" x2="1" y2="0">
-    <stop offset="0%" stop-color="#0369A1"/><stop offset="100%" stop-color="#0284C7"/>
-  </linearGradient>
+  <linearGradient id="g-l1" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#DC2626"/><stop offset="100%" stop-color="#EF4444"/></linearGradient>
+  <linearGradient id="g-l2" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#D97706"/><stop offset="100%" stop-color="#F59E0B"/></linearGradient>
+  <linearGradient id="g-l3" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#059669"/><stop offset="100%" stop-color="#10B981"/></linearGradient>
+  <linearGradient id="g-l4" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0D9488"/><stop offset="100%" stop-color="#14B8A6"/></linearGradient>
 </defs>
 
-<!-- BASE CANVAS -->
-<rect width="980" height="820" fill="#F8FAFC"/>
-<rect x="1" y="1" width="978" height="818" fill="none" stroke="#E2E8F0" stroke-width="1.2"/>
+<!-- BACKGROUND -->
+<rect width="980" height="780" fill="#F8FAFC"/>
+<rect x="1" y="1" width="978" height="778" fill="none" stroke="#E2E8F0" stroke-width="1.2"/>
 
 <!-- TOP HEADER -->
-<rect x="0" y="0" width="980" height="48" fill="url(#g-hdr)"/>
-<text x="490" y="22" text-anchor="middle" font-size="13.5" font-weight="700" fill="#FFFFFF" letter-spacing="0.4">AML Sentinel — Multi-Layer Agentic Financial Crime Intelligence Framework</text>
-<text x="490" y="38" text-anchor="middle" font-size="9.5" fill="#94A3B8">Natural Language Query Routing · 4-Tier Hybrid Detection · Weighted Ensemble Scoring · TreeSHAP &amp; Auto-SAR</text>
+<rect x="0" y="0" width="980" height="46" fill="url(#g-hdr)"/>
+<text x="490" y="21" text-anchor="middle" font-size="13" font-weight="700" fill="#FFFFFF" letter-spacing="0.3">AML Sentinel: Multi-Layer Agentic Financial Crime Intelligence Framework</text>
+<text x="490" y="37" text-anchor="middle" font-size="9" fill="#94A3B8">End-to-End System Architecture · Dynamic Intent Routing · Hybrid Detection Funnel · SHAP XAI &amp; Auto-SAR</text>
 
 <!-- LEFT STAGE RAIL -->
-<line x1="68" y1="56" x2="68" y2="760" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3 3"/>
+<line x1="68" y1="54" x2="68" y2="720" stroke="#CBD5E1" stroke-width="1.2" stroke-dasharray="3 3"/>
 
-<g transform="translate(34, 94)">
-  <circle cx="0" cy="0" r="13" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.4"/>
-  <text x="0" y="3.5" font-size="8.5" font-weight="700" fill="#0284C7" text-anchor="middle">01</text>
-  <text x="-2" y="30" font-size="8" font-weight="700" fill="#64748B" text-anchor="middle" transform="rotate(-90,-2,30)" letter-spacing="0.5">INPUT</text>
+<g transform="translate(34, 88)">
+  <circle cx="0" cy="0" r="12" fill="#E0F2FE" stroke="#0284C7" stroke-width="1.2"/>
+  <text x="0" y="3.5" font-size="8" font-weight="700" fill="#0284C7" text-anchor="middle">01</text>
+  <text x="-2" y="28" font-size="7.5" font-weight="700" fill="#64748B" text-anchor="middle" transform="rotate(-90,-2,28)" letter-spacing="0.5">INPUT</text>
 </g>
 
-<g transform="translate(34, 192)">
-  <circle cx="0" cy="0" r="13" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.4"/>
-  <text x="0" y="3.5" font-size="8.5" font-weight="700" fill="#4F46E5" text-anchor="middle">02</text>
-  <text x="-2" y="34" font-size="8.5" font-weight="700" fill="#64748B" text-anchor="middle" transform="rotate(-90,-2,34)" letter-spacing="0.5">ROUTER</text>
+<g transform="translate(34, 180)">
+  <circle cx="0" cy="0" r="12" fill="#EEF2FF" stroke="#4F46E5" stroke-width="1.2"/>
+  <text x="0" y="3.5" font-size="8" font-weight="700" fill="#4F46E5" text-anchor="middle">02</text>
+  <text x="-2" y="30" font-size="7.5" font-weight="700" fill="#64748B" text-anchor="middle" transform="rotate(-90,-2,30)" letter-spacing="0.5">ROUTER</text>
 </g>
 
-<g transform="translate(34, 335)">
-  <circle cx="0" cy="0" r="13" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.4"/>
-  <text x="0" y="3.5" font-size="8.5" font-weight="700" fill="#DC2626" text-anchor="middle">03</text>
-  <text x="-2" y="42" font-size="8" font-weight="700" fill="#64748B" text-anchor="middle" transform="rotate(-90,-2,42)" letter-spacing="0.5">DETECTION</text>
+<g transform="translate(34, 315)">
+  <circle cx="0" cy="0" r="12" fill="#FEF2F2" stroke="#DC2626" stroke-width="1.2"/>
+  <text x="0" y="3.5" font-size="8" font-weight="700" fill="#DC2626" text-anchor="middle">03</text>
+  <text x="-2" y="38" font-size="7.5" font-weight="700" fill="#64748B" text-anchor="middle" transform="rotate(-90,-2,38)" letter-spacing="0.5">DETECTION</text>
 </g>
 
-<g transform="translate(34, 480)">
-  <circle cx="0" cy="0" r="13" fill="#EDE9FE" stroke="#312E81" stroke-width="1.4"/>
-  <text x="0" y="3.5" font-size="8.5" font-weight="700" fill="#312E81" text-anchor="middle">04</text>
-  <text x="-2" y="34" font-size="8.5" font-weight="700" fill="#64748B" text-anchor="middle" transform="rotate(-90,-2,34)" letter-spacing="0.5">SCORING</text>
+<g transform="translate(34, 455)">
+  <circle cx="0" cy="0" r="12" fill="#EDE9FE" stroke="#312E81" stroke-width="1.2"/>
+  <text x="0" y="3.5" font-size="8" font-weight="700" fill="#312E81" text-anchor="middle">04</text>
+  <text x="-2" y="30" font-size="7.5" font-weight="700" fill="#64748B" text-anchor="middle" transform="rotate(-90,-2,30)" letter-spacing="0.5">SCORING</text>
 </g>
 
-<g transform="translate(34, 595)">
-  <circle cx="0" cy="0" r="13" fill="#FDF4FF" stroke="#7E22CE" stroke-width="1.4"/>
-  <text x="0" y="3.5" font-size="8.5" font-weight="700" fill="#7E22CE" text-anchor="middle">05</text>
-  <text x="-2" y="40" font-size="8" font-weight="700" fill="#64748B" text-anchor="middle" transform="rotate(-90,-2,40)" letter-spacing="0.5">EXPLAIN</text>
+<g transform="translate(34, 565)">
+  <circle cx="0" cy="0" r="12" fill="#FDF4FF" stroke="#7E22CE" stroke-width="1.2"/>
+  <text x="0" y="3.5" font-size="8" font-weight="700" fill="#7E22CE" text-anchor="middle">05</text>
+  <text x="-2" y="36" font-size="7.5" font-weight="700" fill="#64748B" text-anchor="middle" transform="rotate(-90,-2,36)" letter-spacing="0.5">EXPLAIN</text>
 </g>
 
-<g transform="translate(34, 705)">
-  <circle cx="0" cy="0" r="13" fill="#E0F2FE" stroke="#0369A1" stroke-width="1.4"/>
-  <text x="0" y="3.5" font-size="8.5" font-weight="700" fill="#0369A1" text-anchor="middle">06</text>
-  <text x="-2" y="40" font-size="8" font-weight="700" fill="#64748B" text-anchor="middle" transform="rotate(-90,-2,40)" letter-spacing="0.5">INTERFACE</text>
+<g transform="translate(34, 670)">
+  <circle cx="0" cy="0" r="12" fill="#E0F2FE" stroke="#0369A1" stroke-width="1.2"/>
+  <text x="0" y="3.5" font-size="8" font-weight="700" fill="#0369A1" text-anchor="middle">06</text>
+  <text x="-2" y="38" font-size="7.5" font-weight="700" fill="#64748B" text-anchor="middle" transform="rotate(-90,-2,38)" letter-spacing="0.5">INTERFACE</text>
 </g>
 
 <!-- ========================================================================= -->
-<!-- STAGE 1: INPUT & DATA FEED -->
+<!-- STAGE 1: INPUT & DATA INGESTION -->
 <!-- ========================================================================= -->
 <g filter="url(#sh)">
   <!-- Natural Language Query Box -->
-  <rect x="100" y="60" width="410" height="58" rx="7" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
-  <rect x="100" y="60" width="410" height="4" rx="7" fill="url(#g-inp)"/>
-  <text x="116" y="80" font-size="11" font-weight="700" fill="#0F172A">💬 Natural Language Analyst Query</text>
-  <text x="116" y="96" font-size="9" fill="#475569">"Is customer ACC10822 suspicious?" · "Find structuring patterns"</text>
-  <text x="116" y="108" font-size="8" font-weight="600" fill="#0284C7">Dynamic Free-Text Input &amp; Quick Query Templates</text>
+  <rect x="100" y="58" width="410" height="54" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <rect x="100" y="58" width="410" height="3.5" rx="6" fill="#0284C7"/>
+  <text x="116" y="78" font-size="10.5" font-weight="700" fill="#0F172A">Natural Language Query (q ∈ Q)</text>
+  <text x="116" y="94" font-size="8.5" fill="#475569">"Is customer ACC10822 suspicious?" · "Find structuring patterns in amounts"</text>
+  <text x="116" y="105" font-size="8" font-weight="600" fill="#0284C7">Dynamic Free-Text Queries &amp; Quick Analytical Templates</text>
 
-  <!-- Transaction Stream Box -->
-  <rect x="530" y="60" width="410" height="58" rx="7" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
-  <rect x="530" y="60" width="410" height="4" rx="7" fill="url(#g-inp)"/>
-  <text x="546" y="80" font-size="11" font-weight="700" fill="#0F172A">📂 Transaction Stream &amp; Feature Store</text>
-  <text x="546" y="96" font-size="9" fill="#475569">8,453 Banking Transactions (3.04% fraud) · 20 Engineered Features</text>
-  <text x="546" y="108" font-size="8" font-weight="600" fill="#059669">Parquet Feature Cache (&lt;2s Load) · Chronological Zero-Leakage Split</text>
+  <!-- Live Feed Box -->
+  <rect x="530" y="58" width="410" height="54" rx="6" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <rect x="530" y="58" width="410" height="3.5" rx="6" fill="#0284C7"/>
+  <text x="546" y="78" font-size="10.5" font-weight="700" fill="#0F172A">Transaction Stream &amp; Feature Store (T = {x₁, ..., x_N})</text>
+  <text x="546" y="94" font-size="8.5" fill="#475569">8,453 Banking Records · 20 Engineered Features · Parquet Disk Cache</text>
+  <text x="546" y="105" font-size="8" font-weight="600" fill="#059669">Chronological Train/Test Partitioning (Zero Data Leakage)</text>
 </g>
 
 <!-- Connectors S1 -> S2 -->
-<path d="M305 118 L305 142 L490 142 L490 156" fill="none" stroke="#64748B" stroke-width="1.3" marker-end="url(#ar)"/>
-<path d="M735 118 L735 142 L490 142" fill="none" stroke="#64748B" stroke-width="1.3"/>
+<path d="M305 112 L305 134 L490 134 L490 146" fill="none" stroke="#64748B" stroke-width="1.2" marker-end="url(#ar)"/>
+<path d="M735 112 L735 134 L490 134" fill="none" stroke="#64748B" stroke-width="1.2"/>
 
 <!-- ========================================================================= -->
 <!-- STAGE 2: AGENTIC INTENT ROUTER -->
 <!-- ========================================================================= -->
 <g filter="url(#sh-card)">
-  <rect x="100" y="156" width="840" height="66" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.1"/>
-  <rect x="100" y="156" width="840" height="4.5" rx="8" fill="url(#g-rtr)"/>
+  <rect x="100" y="146" width="840" height="60" rx="7" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <rect x="100" y="146" width="840" height="3.5" rx="7" fill="#4F46E5"/>
   
-  <text x="116" y="177" font-size="11.5" font-weight="700" fill="#1E1B4B">🤖 Agentic Planner &amp; Intent Router (agents/orchestrator.py)</text>
-  <text x="116" y="191" font-size="8.5" fill="#475569">Dynamically parses query intent, extracts account filters &amp; dispatches selective detection pipelines</text>
+  <text x="116" y="165" font-size="11" font-weight="700" fill="#1E1B4B">Agentic Orchestrator &amp; Intent Routing Function: π(q) → {M_k}</text>
+  <text x="116" y="179" font-size="8.5" fill="#475569">Parses intent, extracts target accounts &amp; time horizons, dynamically dispatches required detection sub-engines</text>
   
-  <!-- Intent Badges -->
-  <g transform="translate(116, 198)">
-    <rect x="0" y="0" width="130" height="17" rx="8.5" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="0.8"/>
-    <text x="65" y="11.5" font-size="8" font-weight="700" fill="#4338CA" text-anchor="middle">🎯 ENTITY Query</text>
+  <!-- Clean Intent Badges -->
+  <g transform="translate(116, 186)">
+    <rect x="0" y="0" width="130" height="15" rx="7.5" fill="#EEF2FF" stroke="#C7D2FE" stroke-width="0.8"/>
+    <text x="65" y="10.5" font-size="7.5" font-weight="700" fill="#4338CA" text-anchor="middle">ENTITY Lookup</text>
 
-    <rect x="140" y="0" width="150" height="17" rx="8.5" fill="#FEF2F2" stroke="#FECACA" stroke-width="0.8"/>
-    <text x="215" y="11.5" font-size="8" font-weight="700" fill="#B91C1C" text-anchor="middle">⚡ STRUCTURING Query</text>
+    <rect x="140" y="0" width="145" height="15" rx="7.5" fill="#FEF2F2" stroke="#FECACA" stroke-width="0.8"/>
+    <text x="212" y="10.5" font-size="7.5" font-weight="700" fill="#B91C1C" text-anchor="middle">STRUCTURING Rules</text>
 
-    <rect x="300" y="0" width="140" height="17" rx="8.5" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="0.8"/>
-    <text x="370" y="11.5" font-size="8" font-weight="700" fill="#15803D" text-anchor="middle">🌐 NETWORK Query</text>
+    <rect x="295" y="0" width="135" height="15" rx="7.5" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="0.8"/>
+    <text x="362" y="10.5" font-size="7.5" font-weight="700" fill="#15803D" text-anchor="middle">NETWORK Graph</text>
 
-    <rect x="450" y="0" width="130" height="17" rx="8.5" fill="#FFFBEB" stroke="#FDE68A" stroke-width="0.8"/>
-    <text x="515" y="11.5" font-size="8" font-weight="700" fill="#B45309" text-anchor="middle">🔍 BROAD Analysis</text>
+    <rect x="440" y="0" width="130" height="15" rx="7.5" fill="#FFFBEB" stroke="#FDE68A" stroke-width="0.8"/>
+    <text x="505" y="10.5" font-size="7.5" font-weight="700" fill="#B45309" text-anchor="middle">BROAD Multi-Layer</text>
 
-    <rect x="590" y="0" width="155" height="17" rx="8.5" fill="#F0FDFA" stroke="#99F6E4" stroke-width="0.8"/>
-    <text x="667" y="11.5" font-size="8" font-weight="700" fill="#0F766E" text-anchor="middle">📊 AGGREGATION Query</text>
+    <rect x="580" y="0" width="145" height="15" rx="7.5" fill="#F0FDFA" stroke="#99F6E4" stroke-width="0.8"/>
+    <text x="652" y="10.5" font-size="7.5" font-weight="700" fill="#0F766E" text-anchor="middle">AGGREGATION Burst</text>
   </g>
 </g>
 
 <!-- Router Fan-out Lines to 4 Detection Layers -->
-<path d="M200 222 L200 258" fill="none" stroke="#DC2626" stroke-width="1.2" marker-end="url(#ar)"/>
-<path d="M395 222 L395 258" fill="none" stroke="#D97706" stroke-width="1.2" marker-end="url(#ar)"/>
-<path d="M590 222 L590 258" fill="none" stroke="#059669" stroke-width="1.2" marker-end="url(#ar)"/>
-<path d="M790 222 L790 258" fill="none" stroke="#0D9488" stroke-width="1.2" marker-end="url(#ar)"/>
+<path d="M200 206 L200 240" fill="none" stroke="#DC2626" stroke-width="1.2" marker-end="url(#ar)"/>
+<path d="M395 206 L395 240" fill="none" stroke="#D97706" stroke-width="1.2" marker-end="url(#ar)"/>
+<path d="M590 206 L590 240" fill="none" stroke="#059669" stroke-width="1.2" marker-end="url(#ar)"/>
+<path d="M790 206 L790 240" fill="none" stroke="#0D9488" stroke-width="1.2" marker-end="url(#ar)"/>
 
 <!-- ========================================================================= -->
 <!-- STAGE 3: 4 HYBRID DETECTION ENGINES -->
 <!-- ========================================================================= -->
 <g filter="url(#sh)">
   <!-- Layer 1: Rule Engine -->
-  <rect x="100" y="258" width="200" height="142" rx="7" fill="#FFFFFF" stroke="#FECACA" stroke-width="1"/>
-  <rect x="100" y="258" width="200" height="4" rx="7" fill="url(#g-l1)"/>
-  <text x="200" y="278" font-size="10.5" font-weight="700" fill="#991B1B" text-anchor="middle">Layer 1: Rules Engine</text>
-  <text x="200" y="291" font-size="8" fill="#7F1D1D" text-anchor="middle">Statutory &amp; Threshold Checks</text>
-  <line x1="112" y1="296" x2="288" y2="296" stroke="#FEE2E2" stroke-width="0.8"/>
-  <text x="112" y="311" font-size="8" fill="#334155">• CTR Check: Amount ≥ $10,000</text>
-  <text x="112" y="325" font-size="8" fill="#334155">• Structuring: $8,000–$9,999</text>
-  <text x="112" y="339" font-size="8" fill="#334155">• Velocity: &gt;5 tx in 24 hours</text>
-  <text x="112" y="353" font-size="8" fill="#334155">• Round amount divisible by 100</text>
-  <text x="112" y="367" font-size="8" fill="#334155">• Off-hours temporal flags</text>
-  <rect x="112" y="376" width="176" height="15" rx="3.5" fill="#FEE2E2"/>
-  <text x="200" y="386.5" font-size="7.5" font-weight="700" fill="#991B1B" text-anchor="middle">⚡ Sub-millisecond latency</text>
+  <rect x="100" y="240" width="200" height="130" rx="6" fill="#FFFFFF" stroke="#FECACA" stroke-width="1"/>
+  <rect x="100" y="240" width="200" height="3.5" rx="6" fill="url(#g-l1)"/>
+  <text x="200" y="258" font-size="10" font-weight="700" fill="#991B1B" text-anchor="middle">Layer 1: Rules Engine</text>
+  <text x="200" y="270" font-size="7.5" fill="#7F1D1D" text-anchor="middle">f_rules(x) → S_rule ∈ [0, 100]</text>
+  <line x1="112" y1="275" x2="288" y2="275" stroke="#FEE2E2" stroke-width="0.8"/>
+  <text x="112" y="289" font-size="8" fill="#334155">• CTR Threshold: Amount ≥ $10,000</text>
+  <text x="112" y="302" font-size="8" fill="#334155">• Structuring: $8,000 ≤ x &lt; $10,000</text>
+  <text x="112" y="315" font-size="8" fill="#334155">• Velocity Spike: &gt;5 tx in 24 hours</text>
+  <text x="112" y="328" font-size="8" fill="#334155">• Round Amount Flag: x mod 100 = 0</text>
+  <text x="112" y="341" font-size="8" fill="#334155">• Off-Hours Temporal Anomaly Flag</text>
+  <text x="200" y="358" font-size="7.5" font-weight="700" fill="#991B1B" text-anchor="middle">Deterministic Threshold Constraints</text>
 
   <!-- Layer 2: Statistical Profiling -->
-  <rect x="313" y="258" width="200" height="142" rx="7" fill="#FFFFFF" stroke="#FDE68A" stroke-width="1"/>
-  <rect x="313" y="258" width="200" height="4" rx="7" fill="url(#g-l2)"/>
-  <text x="413" y="278" font-size="10.5" font-weight="700" fill="#92400E" text-anchor="middle">Layer 2: Statistical</text>
-  <text x="413" y="291" font-size="8" fill="#78350F" text-anchor="middle">Customer Profiling &amp; Z-Scores</text>
-  <line x1="325" y1="296" x2="501" y2="296" stroke="#FEF3C7" stroke-width="0.8"/>
-  <text x="325" y="311" font-size="8" fill="#334155">• Rolling 7-day baseline (μ, σ)</text>
-  <text x="325" y="325" font-size="8" fill="#334155">• Adaptive anomaly: Z &gt; 2.5</text>
-  <text x="325" y="339" font-size="8" fill="#334155">• Peer group spending variance</text>
-  <text x="325" y="353" font-size="8" fill="#334155">• Rapid cashout (&gt;85% in &lt;2h)</text>
-  <text x="325" y="367" font-size="8" fill="#334155">• Dynamic liquidity tracking</text>
-  <rect x="325" y="376" width="176" height="15" rx="3.5" fill="#FEF3C7"/>
-  <text x="413" y="386.5" font-size="7.5" font-weight="700" fill="#92400E" text-anchor="middle">📈 Adaptive Customer Baseline</text>
+  <rect x="313" y="240" width="200" height="130" rx="6" fill="#FFFFFF" stroke="#FDE68A" stroke-width="1"/>
+  <rect x="313" y="240" width="200" height="3.5" rx="6" fill="url(#g-l2)"/>
+  <text x="413" y="258" font-size="10" font-weight="700" fill="#92400E" text-anchor="middle">Layer 2: Statistical Anomaly</text>
+  <text x="413" y="270" font-size="7.5" fill="#78350F" text-anchor="middle">f_stat(x) = (x - μ_i) / σ_i</text>
+  <line x1="325" y1="275" x2="501" y2="275" stroke="#FEF3C7" stroke-width="0.8"/>
+  <text x="325" y="289" font-size="8" fill="#334155">• Rolling 7-day baseline: μ_i, σ_i</text>
+  <text x="325" y="302" font-size="8" fill="#334155">• Z-Score Anomaly: Z &gt; 2.5</text>
+  <text x="325" y="315" font-size="8" fill="#334155">• Rapid Cashout: Outflows &gt; 85% in &lt;2h</text>
+  <text x="325" y="328" font-size="8" fill="#334155">• Peer Group Spending Divergence</text>
+  <text x="325" y="341" font-size="8" fill="#334155">• Cumulative 24h/7d Volume Spikes</text>
+  <text x="413" y="358" font-size="7.5" font-weight="700" fill="#92400E" text-anchor="middle">Dynamic Behavioral Profiling</text>
 
   <!-- Layer 3: RandomForest ML -->
-  <rect x="526" y="258" width="200" height="142" rx="7" fill="#FFFFFF" stroke="#A7F3D0" stroke-width="1"/>
-  <rect x="526" y="258" width="200" height="4" rx="7" fill="url(#g-l3)"/>
-  <text x="626" y="278" font-size="10.5" font-weight="700" fill="#065F46" text-anchor="middle">Layer 3: RandomForest ML</text>
-  <text x="626" y="291" font-size="8" fill="#064E3B" text-anchor="middle">Supervised Ensemble Model</text>
-  <line x1="538" y1="296" x2="714" y2="296" stroke="#D1FAE5" stroke-width="0.8"/>
-  <text x="538" y="311" font-size="8" fill="#334155">• 20 Engineered AML features</text>
-  <text x="538" y="325" font-size="8" fill="#334155">• 5-Fold Stratified Cross-Val</text>
-  <text x="538" y="339" font-size="8" fill="#047857" font-weight="700">• 85.23% Recall ± 3.98%</text>
-  <text x="538" y="353" font-size="8" fill="#047857" font-weight="700">• 85.75% Precision ± 4.26%</text>
-  <text x="538" y="367" font-size="8" fill="#047857" font-weight="700">• 85.39% F1-Score (Holdout)</text>
-  <rect x="538" y="376" width="176" height="15" rx="3.5" fill="#D1FAE5"/>
-  <text x="626" y="386.5" font-size="7.5" font-weight="700" fill="#065F46" text-anchor="middle">🏆 ~88% False Alert Reduction</text>
+  <rect x="526" y="240" width="200" height="130" rx="6" fill="#FFFFFF" stroke="#A7F3D0" stroke-width="1"/>
+  <rect x="526" y="240" width="200" height="3.5" rx="6" fill="url(#g-l3)"/>
+  <text x="626" y="258" font-size="10" font-weight="700" fill="#065F46" text-anchor="middle">Layer 3: RandomForest ML</text>
+  <text x="626" y="270" font-size="7.5" fill="#064E3B" text-anchor="middle">f_ml(x) → P(Fraud | x) ∈ [0, 1]</text>
+  <line x1="538" y1="275" x2="714" y2="275" stroke="#D1FAE5" stroke-width="0.8"/>
+  <text x="538" y="289" font-size="8" fill="#334155">• 20 Engineered Feature Vectors</text>
+  <text x="538" y="302" font-size="8" fill="#334155">• 5-Fold Stratified Cross-Validation</text>
+  <text x="538" y="315" font-size="8" fill="#047857" font-weight="700">• Recall: 85.23% ± 3.98%</text>
+  <text x="538" y="328" font-size="8" fill="#047857" font-weight="700">• Precision: 85.75% ± 4.26%</text>
+  <text x="538" y="341" font-size="8" fill="#047857" font-weight="700">• F1-Score: 85.39% (Holdout)</text>
+  <text x="626" y="358" font-size="7.5" font-weight="700" fill="#065F46" text-anchor="middle">~88% False Positive Reduction</text>
 
   <!-- Layer 4: Graph Topology -->
-  <rect x="740" y="258" width="200" height="142" rx="7" fill="#FFFFFF" stroke="#99F6E4" stroke-width="1"/>
-  <rect x="740" y="258" width="200" height="4" rx="7" fill="url(#g-l4)"/>
-  <text x="840" y="278" font-size="10.5" font-weight="700" fill="#115E59" text-anchor="middle">Layer 4: Graph Topology</text>
-  <text x="840" y="291" font-size="8" fill="#134E4A" text-anchor="middle">NetworkX &amp; Topological Motifs</text>
-  <line x1="752" y1="296" x2="928" y2="296" stroke="#CCFBF1" stroke-width="0.8"/>
-  <text x="752" y="311" font-size="8" fill="#334155">• PageRank Centrality ranking</text>
-  <text x="752" y="325" font-size="8" fill="#334155">• Louvain Community clusters</text>
-  <text x="752" y="339" font-size="8" fill="#0F766E">• Fan-out (Smurfing patterns)</text>
-  <text x="752" y="353" font-size="8" fill="#0F766E">• Chains (Layering hops)</text>
-  <text x="752" y="367" font-size="8" fill="#0F766E">• Cycles (Round-trip loops)</text>
-  <rect x="752" y="376" width="176" height="15" rx="3.5" fill="#CCFBF1"/>
-  <text x="840" y="386.5" font-size="7.5" font-weight="700" fill="#115E59" text-anchor="middle">🕸️ Guilt-by-Association Graph</text>
+  <rect x="740" y="240" width="200" height="130" rx="6" fill="#FFFFFF" stroke="#99F6E4" stroke-width="1"/>
+  <rect x="740" y="240" width="200" height="3.5" rx="6" fill="url(#g-l4)"/>
+  <text x="840" y="258" font-size="10" font-weight="700" fill="#115E59" text-anchor="middle">Layer 4: Graph Topology</text>
+  <text x="840" y="270" font-size="7.5" fill="#134E4A" text-anchor="middle">f_graph(G) on G = (V, E)</text>
+  <line x1="752" y1="275" x2="928" y2="275" stroke="#CCFBF1" stroke-width="0.8"/>
+  <text x="752" y="289" font-size="8" fill="#334155">• PageRank Centrality: p(u)</text>
+  <text x="752" y="302" font-size="8" fill="#334155">• Louvain Community Partition: C_k</text>
+  <text x="752" y="315" font-size="8" fill="#0F766E">• Fan-out (Smurfing Subgraphs)</text>
+  <text x="752" y="328" font-size="8" fill="#0F766E">• Linear Layering Chains (≥3 hops)</text>
+  <text x="752" y="341" font-size="8" fill="#0F766E">• Round-Tripping Cycles (length 3–5)</text>
+  <text x="840" y="358" font-size="7.5" font-weight="700" fill="#115E59" text-anchor="middle">Topological Motif Traversal</text>
 </g>
 
-<!-- Convergence Lines to Ensemble Scorer -->
-<path d="M200 400 L200 426 L485 426 L485 438" fill="none" stroke="#64748B" stroke-width="1.2"/>
-<path d="M413 400 L413 426 L485 426" fill="none" stroke="#64748B" stroke-width="1.2"/>
-<path d="M626 400 L626 426 L500 426 L500 438" fill="none" stroke="#64748B" stroke-width="1.2"/>
-<path d="M840 400 L840 426 L500 426" fill="none" stroke="#64748B" stroke-width="1.2"/>
-<line x1="492" y1="426" x2="492" y2="438" stroke="#64748B" stroke-width="1.3" marker-end="url(#ar)"/>
+<!-- Convergence to Ensemble Scorer -->
+<path d="M200 370 L200 398 L485 398 L485 410" fill="none" stroke="#64748B" stroke-width="1.2"/>
+<path d="M413 370 L413 398 L485 398" fill="none" stroke="#64748B" stroke-width="1.2"/>
+<path d="M626 370 L626 398 L500 398 L500 410" fill="none" stroke="#64748B" stroke-width="1.2"/>
+<path d="M840 370 L840 398 L500 398" fill="none" stroke="#64748B" stroke-width="1.2"/>
+<line x1="492" y1="398" x2="492" y2="410" stroke="#64748B" stroke-width="1.3" marker-end="url(#ar)"/>
 
 <!-- ========================================================================= -->
 <!-- STAGE 4: WEIGHTED ENSEMBLE SCORER -->
 <!-- ========================================================================= -->
 <g filter="url(#sh-card)">
-  <rect x="100" y="438" width="840" height="70" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.1"/>
-  <rect x="100" y="438" width="840" height="4.5" rx="8" fill="url(#g-scr)"/>
+  <rect x="100" y="410" width="840" height="66" rx="7" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1"/>
+  <rect x="100" y="410" width="840" height="3.5" rx="7" fill="#1E1B4B"/>
   
-  <text x="116" y="458" font-size="11.5" font-weight="700" fill="#1E1B4B">⚖️ Weighted Multi-Layer Ensemble Scorer (detection/ensemble_scorer.py)</text>
-  <text x="116" y="471" font-size="8.5" fill="#475569">Calculates calibrated Risk Score: w₁·Rules + w₂·ZScore + w₃·ML_Prob + w₄·Graph_Risk (0–100 Scale)</text>
+  <text x="116" y="429" font-size="11" font-weight="700" fill="#1E1B4B">Weighted Multi-Layer Ensemble Fusion: Score(x) = ∑ w_k · s_k(x) ∈ [0, 100]</text>
+  <text x="116" y="442" font-size="8.5" fill="#475569">Combines statutory rule flags, Z-score deviations, Random Forest probabilities, and graph topological risk signals</text>
   
   <!-- Alert Tiers -->
-  <g transform="translate(116, 478)">
-    <rect x="0" y="0" width="230" height="20" rx="4" fill="#FEF2F2" stroke="#F87171" stroke-width="0.8"/>
-    <text x="115" y="13.5" font-size="8" font-weight="700" fill="#B91C1C" text-anchor="middle">🚨 HIGH RISK (Score ≥ 70) → Immediate SAR</text>
+  <g transform="translate(116, 449)">
+    <rect x="0" y="0" width="230" height="18" rx="4" fill="#FEF2F2" stroke="#F87171" stroke-width="0.8"/>
+    <text x="115" y="12.5" font-size="7.5" font-weight="700" fill="#B91C1C" text-anchor="middle">🚨 HIGH RISK (Score ≥ 70) → Immediate SAR</text>
 
-    <rect x="245" y="0" width="240" height="20" rx="4" fill="#FFFBEB" stroke="#FBBF24" stroke-width="0.8"/>
-    <text x="365" y="13.5" font-size="8" font-weight="700" fill="#B45309" text-anchor="middle">⚠️ MEDIUM RISK (40 ≤ Score &lt; 70) → Review</text>
+    <rect x="245" y="0" width="240" height="18" rx="4" fill="#FFFBEB" stroke="#FBBF24" stroke-width="0.8"/>
+    <text x="365" y="12.5" font-size="7.5" font-weight="700" fill="#B45309" text-anchor="middle">⚠️ MEDIUM RISK (40 ≤ Score &lt; 70) → Review</text>
 
-    <rect x="500" y="0" width="220" height="20" rx="4" fill="#F0FDF4" stroke="#4ADE80" stroke-width="0.8"/>
-    <text x="610" y="13.5" font-size="8" font-weight="700" fill="#15803D" text-anchor="middle">✅ LOW RISK (Score &lt; 40) → Pass / Log</text>
+    <rect x="500" y="0" width="220" height="18" rx="4" fill="#F0FDF4" stroke="#4ADE80" stroke-width="0.8"/>
+    <text x="610" y="12.5" font-size="7.5" font-weight="700" fill="#15803D" text-anchor="middle">✅ LOW RISK (Score &lt; 40) → Pass / Log</text>
   </g>
 </g>
 
 <!-- Fan-out to 4 Explainability Outputs -->
-<path d="M200 508 L200 538" fill="none" stroke="#7C3AED" stroke-width="1.2" marker-end="url(#ar)"/>
-<path d="M395 508 L395 538" fill="none" stroke="#7C3AED" stroke-width="1.2" marker-end="url(#ar)"/>
-<path d="M590 508 L590 538" fill="none" stroke="#7C3AED" stroke-width="1.2" marker-end="url(#ar)"/>
-<path d="M790 508 L790 538" fill="none" stroke="#7C3AED" stroke-width="1.2" marker-end="url(#ar)"/>
+<path d="M200 476 L200 508" fill="none" stroke="#7C3AED" stroke-width="1.2" marker-end="url(#ar)"/>
+<path d="M395 476 L395 508" fill="none" stroke="#7C3AED" stroke-width="1.2" marker-end="url(#ar)"/>
+<path d="M590 476 L590 508" fill="none" stroke="#7C3AED" stroke-width="1.2" marker-end="url(#ar)"/>
+<path d="M790 476 L790 508" fill="none" stroke="#7C3AED" stroke-width="1.2" marker-end="url(#ar)"/>
 
 <!-- ========================================================================= -->
 <!-- STAGE 5: EXPLAINABILITY & REGULATORY COMPLIANCE -->
 <!-- ========================================================================= -->
 <g filter="url(#sh)">
   <!-- TreeSHAP -->
-  <rect x="100" y="538" width="200" height="96" rx="7" fill="#FFFFFF" stroke="#E9D5FF" stroke-width="1"/>
-  <rect x="100" y="538" width="200" height="4" rx="7" fill="url(#g-xai)"/>
-  <text x="200" y="556" font-size="10.5" font-weight="700" fill="#6B21A8" text-anchor="middle">TreeSHAP Attribution</text>
-  <line x1="112" y1="562" x2="288" y2="562" stroke="#F3E8FF" stroke-width="0.8"/>
-  <text x="112" y="576" font-size="8" fill="#334155">• Exact local feature shifts (φ_j)</text>
-  <text x="112" y="590" font-size="8" fill="#334155">• Log-odds contribution values</text>
-  <text x="112" y="604" font-size="8" fill="#334155">• Force &amp; Waterfall plot ready</text>
-  <text x="112" y="618" font-size="7.5" font-weight="700" fill="#7C3AED">Eliminates "Black Box" Decisions</text>
+  <rect x="100" y="508" width="200" height="92" rx="6" fill="#FFFFFF" stroke="#E9D5FF" stroke-width="1"/>
+  <rect x="100" y="508" width="200" height="3.5" rx="6" fill="#7C3AED"/>
+  <text x="200" y="525" font-size="10" font-weight="700" fill="#6B21A8" text-anchor="middle">TreeSHAP Attribution</text>
+  <line x1="112" y1="530" x2="288" y2="530" stroke="#F3E8FF" stroke-width="0.8"/>
+  <text x="112" y="544" font-size="8" fill="#334155">• Local feature attribution: φ_j(x)</text>
+  <text x="112" y="557" font-size="8" fill="#334155">• Log-odds shift decomposition</text>
+  <text x="112" y="570" font-size="8" fill="#334155">• Waterfall &amp; Force plot mapping</text>
+  <text x="200" y="587" font-size="7.5" font-weight="700" fill="#7C3AED" text-anchor="middle">Algorithmic Model Transparency</text>
 
   <!-- Counterfactuals -->
-  <rect x="313" y="538" width="200" height="96" rx="7" fill="#FFFFFF" stroke="#E9D5FF" stroke-width="1"/>
-  <rect x="313" y="538" width="200" height="4" rx="7" fill="url(#g-xai)"/>
-  <text x="413" y="556" font-size="10.5" font-weight="700" fill="#6B21A8" text-anchor="middle">Counterfactual Guidance</text>
-  <line x1="325" y1="562" x2="501" y2="562" stroke="#F3E8FF" stroke-width="0.8"/>
-  <text x="325" y="576" font-size="8" fill="#334155">• Actionable mitigation paths</text>
-  <text x="325" y="590" font-size="8" fill="#334155">• "If amount was &lt;$7,500..."</text>
-  <text x="325" y="604" font-size="8" fill="#334155">• Closest decision boundary</text>
-  <text x="325" y="618" font-size="7.5" font-weight="700" fill="#7C3AED">Clear Compliance Remediation</text>
+  <rect x="313" y="508" width="200" height="92" rx="6" fill="#FFFFFF" stroke="#E9D5FF" stroke-width="1"/>
+  <rect x="313" y="508" width="200" height="3.5" rx="6" fill="#7C3AED"/>
+  <text x="413" y="525" font-size="10" font-weight="700" fill="#6B21A8" text-anchor="middle">Counterfactual Guidance</text>
+  <line x1="325" y1="530" x2="501" y2="530" stroke="#F3E8FF" stroke-width="0.8"/>
+  <text x="325" y="544" font-size="8" fill="#334155">• Boundary distance optimization</text>
+  <text x="325" y="557" font-size="8" fill="#334155">• Actionable mitigation paths: x*</text>
+  <text x="325" y="570" font-size="8" fill="#334155">• Sensitivity delta evaluation</text>
+  <text x="413" y="587" font-size="7.5" font-weight="700" fill="#7C3AED" text-anchor="middle">Analyst Remediation Protocol</text>
 
   <!-- Regulatory Mapping -->
-  <rect x="526" y="538" width="200" height="96" rx="7" fill="#FFFFFF" stroke="#E9D5FF" stroke-width="1"/>
-  <rect x="526" y="538" width="200" height="4" rx="7" fill="url(#g-xai)"/>
-  <text x="626" y="556" font-size="10.5" font-weight="700" fill="#6B21A8" text-anchor="middle">FATF / BSA Reg Mapper</text>
-  <line x1="538" y1="562" x2="714" y2="562" stroke="#F3E8FF" stroke-width="0.8"/>
-  <text x="538" y="576" font-size="8" fill="#334155">• FATF Standards: Rec 10, 16, 20</text>
-  <text x="538" y="590" font-size="8" fill="#334155">• BSA Citations: 31 U.S.C. § 5324</text>
-  <text x="538" y="604" font-size="8" fill="#334155">• 31 C.F.R. § 1010 / § 1020</text>
-  <text x="538" y="618" font-size="7.5" font-weight="700" fill="#7C3AED">Statutory Audit Alignment</text>
+  <rect x="526" y="508" width="200" height="92" rx="6" fill="#FFFFFF" stroke="#E9D5FF" stroke-width="1"/>
+  <rect x="526" y="508" width="200" height="3.5" rx="6" fill="#7C3AED"/>
+  <text x="626" y="525" font-size="10" font-weight="700" fill="#6B21A8" text-anchor="middle">FATF / BSA Reg Mapper</text>
+  <line x1="538" y1="530" x2="714" y2="530" stroke="#F3E8FF" stroke-width="0.8"/>
+  <text x="538" y="544" font-size="8" fill="#334155">• FATF Standards: Rec 10, 16, 20</text>
+  <text x="538" y="557" font-size="8" fill="#334155">• BSA Citations: 31 U.S.C. § 5324</text>
+  <text x="538" y="570" font-size="8" fill="#334155">• 31 C.F.R. § 1010 / § 1020 rules</text>
+  <text x="626" y="587" font-size="7.5" font-weight="700" fill="#7C3AED" text-anchor="middle">Statutory Compliance Alignment</text>
 
   <!-- Auto-SAR Narrative -->
-  <rect x="740" y="538" width="200" height="96" rx="7" fill="#FFFFFF" stroke="#E9D5FF" stroke-width="1"/>
-  <rect x="740" y="538" width="200" height="4" rx="7" fill="url(#g-xai)"/>
-  <text x="840" y="556" font-size="10.5" font-weight="700" fill="#6B21A8" text-anchor="middle">Auto-SAR Generator</text>
-  <line x1="752" y1="562" x2="928" y2="562" stroke="#F3E8FF" stroke-width="0.8"/>
-  <text x="752" y="576" font-size="8" fill="#334155">• FinCEN Form 111 drafting</text>
-  <text x="752" y="590" font-size="8" fill="#334155">• Typology narrative synthesis</text>
-  <text x="752" y="604" font-size="8" fill="#334155">• Formal legal phrasing</text>
-  <text x="752" y="618" font-size="7.5" font-weight="700" fill="#7C3AED">Ready-to-File SAR Narrative</text>
+  <rect x="740" y="508" width="200" height="92" rx="6" fill="#FFFFFF" stroke="#E9D5FF" stroke-width="1"/>
+  <rect x="740" y="508" width="200" height="3.5" rx="6" fill="#7C3AED"/>
+  <text x="840" y="525" font-size="10" font-weight="700" fill="#6B21A8" text-anchor="middle">Auto-SAR Generator</text>
+  <line x1="752" y1="530" x2="928" y2="530" stroke="#F3E8FF" stroke-width="0.8"/>
+  <text x="752" y="544" font-size="8" fill="#334155">• FinCEN Form 111 Narrative Draft</text>
+  <text x="752" y="557" font-size="8" fill="#334155">• Typology synthesis &amp; case summary</text>
+  <text x="752" y="570" font-size="8" fill="#334155">• Legal phrasing &amp; timestamp logs</text>
+  <text x="840" y="587" font-size="7.5" font-weight="700" fill="#7C3AED" text-anchor="middle">Automated Filing Documentation</text>
 </g>
 
 <!-- Convergence to UI -->
-<path d="M200 634 L200 658 L485 658 L485 670" fill="none" stroke="#64748B" stroke-width="1.2"/>
-<path d="M413 634 L413 658 L485 658" fill="none" stroke="#64748B" stroke-width="1.2"/>
-<path d="M626 634 L626 658 L500 658 L500 670" fill="none" stroke="#64748B" stroke-width="1.2"/>
-<path d="M840 634 L840 658 L500 658" fill="none" stroke="#64748B" stroke-width="1.2"/>
-<line x1="492" y1="658" x2="492" y2="670" stroke="#64748B" stroke-width="1.3" marker-end="url(#ar)"/>
+<path d="M200 600 L200 626 L485 626 L485 638" fill="none" stroke="#64748B" stroke-width="1.2"/>
+<path d="M413 600 L413 626 L485 626" fill="none" stroke="#64748B" stroke-width="1.2"/>
+<path d="M626 600 L626 626 L500 626 L500 638" fill="none" stroke="#64748B" stroke-width="1.2"/>
+<path d="M840 600 L840 626 L500 626" fill="none" stroke="#64748B" stroke-width="1.2"/>
+<line x1="492" y1="626" x2="492" y2="638" stroke="#64748B" stroke-width="1.3" marker-end="url(#ar)"/>
 
 <!-- ========================================================================= -->
 <!-- STAGE 6: STREAMLIT ANALYST WORKSPACE -->
 <!-- ========================================================================= -->
 <g filter="url(#sh-card)">
-  <rect x="100" y="670" width="840" height="74" rx="8" fill="#FFFFFF" stroke="#0284C7" stroke-width="1.1"/>
-  <rect x="100" y="670" width="840" height="4.5" rx="8" fill="url(#g-ui)"/>
+  <rect x="100" y="638" width="840" height="70" rx="7" fill="#FFFFFF" stroke="#0284C7" stroke-width="1"/>
+  <rect x="100" y="638" width="840" height="3.5" rx="7" fill="#0284C7"/>
   
-  <text x="116" y="691" font-size="11.5" font-weight="700" fill="#0C4A6E">🖥️ Production Analyst Workspace (Streamlit Web Dashboard — app.py)</text>
-  <text x="116" y="704" font-size="8.5" fill="#475569">Interactive Glassmorphic UI · Real-time Graph Exploration · Live Decision Trace &amp; Downloadable SAR Filings</text>
+  <text x="116" y="657" font-size="11" font-weight="700" fill="#0C4A6E">Analyst Investigation Workspace (Streamlit Web Dashboard — app.py)</text>
+  <text x="116" y="671" font-size="8.5" fill="#475569">Interactive Glassmorphic Interface · Real-time Graph Exploration · Live Decision Trace &amp; Downloadable SAR Filings</text>
   
-  <g transform="translate(116, 712)">
-    <rect x="0" y="0" width="180" height="20" rx="3.5" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="0.8"/>
-    <text x="90" y="13.5" font-size="8" font-weight="700" fill="#0369A1" text-anchor="middle">🚨 Alert Center &amp; Queue</text>
+  <g transform="translate(116, 678)">
+    <rect x="0" y="0" width="185" height="19" rx="3.5" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="0.8"/>
+    <text x="92" y="13" font-size="7.5" font-weight="700" fill="#0369A1" text-anchor="middle">🚨 Alert Center &amp; Triage Queue</text>
 
-    <rect x="190" y="0" width="195" height="20" rx="3.5" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="0.8"/>
-    <text x="297" y="13.5" font-size="8" font-weight="700" fill="#0369A1" text-anchor="middle">🌐 Vis.js Transaction Network</text>
+    <rect x="195" y="0" width="200" height="19" rx="3.5" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="0.8"/>
+    <text x="295" y="13" font-size="7.5" font-weight="700" fill="#0369A1" text-anchor="middle">🌐 Vis.js Transaction Network</text>
 
-    <rect x="395" y="0" width="205" height="20" rx="3.5" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="0.8"/>
-    <text x="497" y="13.5" font-size="8" font-weight="700" fill="#0369A1" text-anchor="middle">🔬 Deep Investigation (SHAP/SAR)</text>
+    <rect x="405" y="0" width="205" height="19" rx="3.5" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="0.8"/>
+    <text x="507" y="13" font-size="7.5" font-weight="700" fill="#0369A1" text-anchor="middle">🔬 Deep Investigation (SHAP/SAR)</text>
 
-    <rect x="610" y="0" width="195" height="20" rx="3.5" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="0.8"/>
-    <text x="707" y="13.5" font-size="8" font-weight="700" fill="#0369A1" text-anchor="middle">📊 Model Performance &amp; Reg Map</text>
+    <rect x="620" y="0" width="190" height="19" rx="3.5" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="0.8"/>
+    <text x="715" y="13" font-size="7.5" font-weight="700" fill="#0369A1" text-anchor="middle">📊 Model Evaluation &amp; PR Curves</text>
   </g>
 </g>
 
 <!-- ========================================================================= -->
 <!-- CAPTION FOOTER -->
 <!-- ========================================================================= -->
-<line x1="100" y1="760" x2="940" y2="760" stroke="#CBD5E1" stroke-width="0.8"/>
-<text x="520" y="778" text-anchor="middle" font-size="10.5" font-weight="700" fill="#1E293B">Fig. 1. Architecture of AML Sentinel: Multi-Layer Agentic Financial Crime Intelligence &amp; Transaction Monitoring Platform.</text>
-<text x="520" y="793" text-anchor="middle" font-size="8.5" fill="#64748B">Combines Natural Language Intent Routing, 4-Tier Hybrid Detection (Rules, Z-Scores, RandomForest ML, Graph Motifs), TreeSHAP Explainability, and Automated FinCEN Form 111 SAR Generation.</text>
-<text x="520" y="807" text-anchor="middle" font-size="8" font-weight="600" fill="#059669">Evaluated on 8,453 Transactions · 85.23% Recall · 85.75% Precision · ~88% False Positive Elimination · 5-Fold Stratified Cross-Validation</text>
+<line x1="100" y1="722" x2="940" y2="722" stroke="#CBD5E1" stroke-width="0.8"/>
+<text x="520" y="740" text-anchor="middle" font-size="10" font-weight="700" fill="#1E293B">Fig. 1. Architecture of AML Sentinel: Multi-Layer Agentic Financial Crime Intelligence &amp; Transaction Monitoring Platform.</text>
+<text x="520" y="754" text-anchor="middle" font-size="8.5" fill="#64748B">Combines Natural Language Intent Routing, 4-Tier Hybrid Detection (Rules, Z-Scores, RandomForest ML, Graph Motifs), TreeSHAP Explainability, and Automated FinCEN Form 111 SAR Generation.</text>
+<text x="520" y="767" text-anchor="middle" font-size="8" font-weight="600" fill="#059669">Evaluated on 8,453 Transactions · 85.23% Recall · 85.75% Precision · ~88% False Positive Elimination · 5-Fold Stratified Cross-Validation</text>
 
 </svg>
