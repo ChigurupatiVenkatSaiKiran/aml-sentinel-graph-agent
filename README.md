@@ -165,21 +165,12 @@ Below is the complete query-to-explainability pipeline of AML Sentinel:
 
 <br/><br/>
 
-### 📐 End-to-End System Architecture Specification
+### 📐 Detailed Architectural Specification
 
-<img src="figures/architecture_diagram_ieee_masterpiece.svg" alt="AML Sentinel Masterpiece System Architecture Diagram" width="940" />
-
-<br/>
-<em><b>Fig. 1:</b> End-to-End System Architecture of AML Sentinel — Illustrating the Integration Across 5 Subsystems: Ingestion & 20-D Feature Engineering (Module I) → Agentic Query Parsing & Intent Dispatch (Module II) → Quad-Engine Hybrid Detection Stack (Module III) → Calibrated Weighted Ensemble Fusion (Module IV) → Explainable Compliance & FinCEN Form 111 SAR Generation (Module V).</em>
-
-<br/><br/>
-
-### ⚡ Dual-Phase Pipeline: Offline Precomputation vs. Real-Time Inference
-
-<img src="figures/pipeline_diagram_ieee_masterpiece.svg" alt="AML Sentinel Dual-Phase Pipeline Diagram" width="900" />
+<img src="figures/architecture_diagram_ieee_masterpiece.svg" alt="AML Sentinel System Architecture Diagram" width="100%" />
 
 <br/>
-<em><b>Fig. 2:</b> Dual-Phase Architecture — Batch Stratified ML Model Training & Graph Topology Precomputations (Phase I) vs. Sub-Second Real-Time Agentic Query Routing & Dynamic Ensemble Decision Fusion (Phase II).</em>
+<em><b>Fig. 1:</b> Architectural Overview of AML Sentinel — Multi-Layer Agentic Financial Crime Intelligence & Detection Pipeline.</em>
 
 </div>
 
