@@ -1,0 +1,208 @@
+<svg width="900" height="840" viewBox="0 0 900 840" xmlns="http://www.w3.org/2000/svg" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
+<defs>
+  <marker id="arr-gray" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M1.5 1.5L8.5 5L1.5 8.5" fill="none" stroke="#64748B" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <marker id="arr-blue" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M1.5 1.5L8.5 5L1.5 8.5" fill="none" stroke="#0284C7" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+  <marker id="arr-purple" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+    <path d="M1.5 1.5L8.5 5L1.5 8.5" fill="none" stroke="#7E22CE" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+  </marker>
+
+  <filter id="cardSh" x="-2%" y="-2%" width="104%" height="108%" filterUnits="userSpaceOnUse">
+    <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#0F172A" flood-opacity="0.06"/>
+  </filter>
+
+  <linearGradient id="gHeader" x1="0" y1="0" x2="1" y2="0">
+    <stop offset="0%" stop-color="#0B132B"/>
+    <stop offset="50%" stop-color="#1C2541"/>
+    <stop offset="100%" stop-color="#0B132B"/>
+  </linearGradient>
+
+  <linearGradient id="gBlue" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0284C7"/><stop offset="100%" stop-color="#38BDF8"/></linearGradient>
+  <linearGradient id="gPurple" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#7E22CE"/><stop offset="100%" stop-color="#C084FC"/></linearGradient>
+  <linearGradient id="gTeal" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#0D9488"/><stop offset="100%" stop-color="#2DD4BF"/></linearGradient>
+  <linearGradient id="gOrange" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#EA580C"/><stop offset="100%" stop-color="#FB923C"/></linearGradient>
+  <linearGradient id="gGreen" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#16A34A"/><stop offset="100%" stop-color="#4ADE80"/></linearGradient>
+  <linearGradient id="gRed" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#DC2626"/><stop offset="100%" stop-color="#F87171"/></linearGradient>
+</defs>
+
+<!-- Background -->
+<rect width="900" height="840" fill="#F8FAFC"/>
+
+<!-- TOP BANNER -->
+<rect x="24" y="16" width="852" height="52" rx="8" fill="url(#gHeader)" filter="url(#cardSh)"/>
+<text x="450" y="38" text-anchor="middle" font-size="13" font-weight="800" fill="#FFFFFF" letter-spacing="0.5">
+  AML SENTINEL · DUAL-PHASE TRAINING &amp; REAL-TIME AGENTIC INFERENCE PIPELINE
+</text>
+<text x="450" y="55" text-anchor="middle" font-size="10" font-weight="500" fill="#94A3B8">
+  Batch Stratified Model &amp; Graph Precomputations · Dynamic Natural Language Intent Execution (&lt; 2.0 s) · Live Streamlit UI
+</text>
+
+<!-- ========================================================================= -->
+<!-- LEFT COLUMN: PHASE I OFFLINE MODEL TRAINING & GRAPH PRECOMPUTATIONS        -->
+<!-- ========================================================================= -->
+<g transform="translate(48, 82)">
+  <rect x="0" y="0" width="386" height="660" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#cardSh)"/>
+  <rect x="0" y="0" width="386" height="34" rx="8" fill="url(#gBlue)"/>
+  <text x="193" y="22" text-anchor="middle" font-size="11.5" font-weight="800" fill="#FFFFFF">PHASE I: OFFLINE TRAINING &amp; GRAPH PRECOMPUTATION</text>
+
+  <!-- Step 1 -->
+  <rect x="18" y="46" width="350" height="54" rx="6" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1"/>
+  <text x="193" y="65" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0369A1">1. Synthetic AML Ledger Generation</text>
+  <text x="193" y="80" text-anchor="middle" font-size="8.5" fill="#0284C7">8,453 Transactions · 7 Payment Categories · 5 Planted Typologies</text>
+  <text x="193" y="92" text-anchor="middle" font-size="8" font-weight="600" fill="#0284C7">Chronological Train/Test Partitioning (Zero Future Data Leakage)</text>
+
+  <line x1="193" y1="100" x2="193" y2="116" stroke="#0284C7" stroke-width="1.4" marker-end="url(#arr-blue)"/>
+
+  <!-- Step 2 -->
+  <rect x="18" y="116" width="350" height="64" rx="6" fill="#FAF5FF" stroke="#E9D5FF" stroke-width="1"/>
+  <text x="193" y="134" text-anchor="middle" font-size="10.5" font-weight="700" fill="#6B21A8">2. 20-D Feature Engineering &amp; Profiling</text>
+  <text x="193" y="150" text-anchor="middle" font-size="8.5" fill="#7E22CE">• Rolling windows: tx_count_1d/7d, tx_sum_1d/7d, unique_recipients</text>
+  <text x="193" y="162" text-anchor="middle" font-size="8.5" fill="#7E22CE">• Velocity checks, rapid cashout indicators, Z-score profiles</text>
+  <text x="193" y="174" text-anchor="middle" font-size="8" font-weight="600" fill="#9333EA">Exports: processed_cache.parquet (Fast warm starts &lt; 2 seconds)</text>
+
+  <line x1="193" y1="180" x2="193" y2="196" stroke="#0284C7" stroke-width="1.4" marker-end="url(#arr-blue)"/>
+
+  <!-- Step 3 -->
+  <rect x="18" y="196" width="350" height="88" rx="6" fill="#F0FDFA" stroke="#99F6E4" stroke-width="1"/>
+  <text x="193" y="214" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0F766E">3. Graph Network Topology Precomputation</text>
+  <text x="193" y="230" text-anchor="middle" font-size="8.5" fill="#115E59">• NetworkX directed multigraph: 12,574 nodes · 8,453 edges</text>
+  <text x="193" y="244" text-anchor="middle" font-size="8.5" fill="#115E59">• PageRank Centrality &amp; Louvain Community Risk Scores</text>
+  <text x="193" y="258" text-anchor="middle" font-size="8.5" fill="#115E59">• Motif Detection: 108 cycles · 1,642 fan-out · 1,625 fan-in · 1,046 chains</text>
+  <text x="193" y="272" text-anchor="middle" font-size="8" font-weight="600" fill="#0D9488">Exports: precomputed graph indexes &amp; PyVis HTML layouts</text>
+
+  <line x1="193" y1="284" x2="193" y2="300" stroke="#0284C7" stroke-width="1.4" marker-end="url(#arr-blue)"/>
+
+  <!-- Step 4 -->
+  <rect x="18" y="300" width="350" height="154" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="193" y="318" text-anchor="middle" font-size="10.5" font-weight="800" fill="#0F172A">4. RandomForest ML Training &amp; Cross-Validation</text>
+
+  <rect x="28" y="328" width="158" height="114" rx="5" fill="#FFFFFF" stroke="#16A34A" stroke-width="1"/>
+  <rect x="28" y="328" width="158" height="6" rx="5" fill="url(#gGreen)"/>
+  <text x="107" y="346" text-anchor="middle" font-size="9.5" font-weight="800" fill="#15803D">RandomForest Model</text>
+  <text x="107" y="362" text-anchor="middle" font-size="8" fill="#166534">• 100 Decision Trees</text>
+  <text x="107" y="376" text-anchor="middle" font-size="8" fill="#166534">• 5-Fold Stratified CV</text>
+  <text x="107" y="390" text-anchor="middle" font-size="8" fill="#166534">• Balanced class weights</text>
+  <text x="107" y="404" text-anchor="middle" font-size="8" fill="#166534">• Zero synthetic bias</text>
+  <rect x="36" y="414" width="142" height="20" rx="3" fill="#16A34A"/>
+  <text x="107" y="428" text-anchor="middle" font-size="8" font-weight="700" fill="#FFFFFF">85.23% RECALL (CV)</text>
+
+  <rect x="200" y="328" width="158" height="114" rx="5" fill="#FFFFFF" stroke="#7E22CE" stroke-width="1"/>
+  <rect x="200" y="328" width="158" height="6" rx="5" fill="url(#gPurple)"/>
+  <text x="279" y="346" text-anchor="middle" font-size="9.5" font-weight="800" fill="#6B21A8">TreeSHAP Explainer</text>
+  <text x="279" y="362" text-anchor="middle" font-size="8" fill="#7E22CE">• Local TreeExplainer</text>
+  <text x="279" y="376" text-anchor="middle" font-size="8" fill="#7E22CE">• Log-odds feature shifts</text>
+  <text x="279" y="390" text-anchor="middle" font-size="8" fill="#7E22CE">• Background baseline</text>
+  <text x="279" y="404" text-anchor="middle" font-size="8" fill="#7E22CE">• Counterfactual bounds</text>
+  <rect x="208" y="414" width="142" height="20" rx="3" fill="#7E22CE"/>
+  <text x="279" y="428" text-anchor="middle" font-size="8" font-weight="700" fill="#FFFFFF">85.75% PRECISION (CV)</text>
+
+  <line x1="193" y1="454" x2="193" y2="470" stroke="#0284C7" stroke-width="1.4" marker-end="url(#arr-blue)"/>
+
+  <!-- Step 5 -->
+  <rect x="18" y="470" width="350" height="80" rx="6" fill="#FFF7ED" stroke="#FED7AA" stroke-width="1"/>
+  <text x="193" y="488" text-anchor="middle" font-size="10.5" font-weight="700" fill="#C2410C">5. Calibration &amp; Artifact Serialization</text>
+  <text x="193" y="504" text-anchor="middle" font-size="8.5" fill="#9A3412">• Ensemble weights tuning: w_rule=0.20, w_stat=0.20, w_ml=0.35, w_graph=0.25</text>
+  <text x="193" y="518" text-anchor="middle" font-size="8.5" fill="#9A3412">• Calibrated thresholds: Low (&lt;40) · Med (40–69) · High (≥70)</text>
+  <text x="193" y="534" text-anchor="middle" font-size="8" font-weight="700" fill="#EA580C">Artifacts: model.pkl · metrics_summary.csv · cache.parquet</text>
+
+  <!-- Step 6 -->
+  <rect x="18" y="560" width="350" height="86" rx="6" fill="#FEF2F2" stroke="#FECACA" stroke-width="1"/>
+  <text x="193" y="578" text-anchor="middle" font-size="10.5" font-weight="700" fill="#B91C1C">6. Evaluation Harness Validation</text>
+  <text x="193" y="594" text-anchor="middle" font-size="8.5" fill="#7F1D1D">81/81 Automated Integration Checks Passed (`test_integration.py`)</text>
+  <text x="193" y="608" text-anchor="middle" font-size="8.5" fill="#7F1D1D">Holdout False Alert Reduction: ~88% (90 alerts down to 11)</text>
+  <rect x="28" y="618" width="330" height="20" rx="3" fill="#DC2626"/>
+  <text x="193" y="632" text-anchor="middle" font-size="8.5" font-weight="700" fill="#FFFFFF">BENCHMARK CERTIFIED: F1 = 85.39%</text>
+</g>
+
+<!-- ========================================================================= -->
+<!-- RIGHT COLUMN: PHASE II REAL-TIME STREAMING & AGENTIC INFERENCE            -->
+<!-- ========================================================================= -->
+<g transform="translate(466, 82)">
+  <rect x="0" y="0" width="386" height="660" rx="8" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.2" filter="url(#cardSh)"/>
+  <rect x="0" y="0" width="386" height="34" rx="8" fill="url(#gPurple)"/>
+  <text x="193" y="22" text-anchor="middle" font-size="11.5" font-weight="800" fill="#FFFFFF">PHASE II: REAL-TIME INFERENCE &amp; AGENT ROUTING</text>
+
+  <!-- Step 1 -->
+  <rect x="18" y="46" width="350" height="54" rx="6" fill="#FAF5FF" stroke="#E9D5FF" stroke-width="1"/>
+  <text x="193" y="65" text-anchor="middle" font-size="10.5" font-weight="700" fill="#6B21A8">1. Natural Language Query / Tx Stream</text>
+  <text x="193" y="80" text-anchor="middle" font-size="8.5" fill="#7E22CE">e.g. "Is customer ACC10822 suspicious?" / "Find structuring"</text>
+  <text x="193" y="92" text-anchor="middle" font-size="8" font-weight="600" fill="#9333EA">Real-time analyst query dispatch via Streamlit UI</text>
+
+  <line x1="193" y1="100" x2="193" y2="116" stroke="#7E22CE" stroke-width="1.4" marker-end="url(#arr-purple)"/>
+
+  <!-- Step 2 -->
+  <rect x="18" y="116" width="350" height="64" rx="6" fill="#F0F9FF" stroke="#BAE6FD" stroke-width="1"/>
+  <text x="193" y="134" text-anchor="middle" font-size="10.5" font-weight="700" fill="#0369A1">2. Agentic Intent Parsing &amp; Engine Plan</text>
+  <text x="193" y="150" text-anchor="middle" font-size="8.5" fill="#0284C7">Regex + Semantic Pattern Parser classifies intent into 5 types:</text>
+  <text x="193" y="162" text-anchor="middle" font-size="8" font-weight="600" fill="#0369A1">ENTITY · STRUCTURING · NETWORK · BROAD · AGGREGATION</text>
+  <text x="193" y="174" text-anchor="middle" font-size="7.5" fill="#0284C7">Dynamically activates only required detection modules</text>
+
+  <line x1="193" y1="180" x2="193" y2="196" stroke="#7E22CE" stroke-width="1.4" marker-end="url(#arr-purple)"/>
+
+  <!-- Step 3 -->
+  <rect x="18" y="196" width="350" height="154" rx="6" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1"/>
+  <text x="193" y="214" text-anchor="middle" font-size="10.5" font-weight="800" fill="#0F172A">3. Multi-Layer Parallel Inference</text>
+
+  <rect x="28" y="226" width="158" height="52" rx="4" fill="#FFFFFF" stroke="#DC2626" stroke-width="0.8"/>
+  <text x="107" y="242" text-anchor="middle" font-size="8.5" font-weight="700" fill="#B91C1C">Layer 1: Rules Engine</text>
+  <text x="107" y="256" text-anchor="middle" font-size="7.5" fill="#7F1D1D">CTR &amp; Structuring Flags</text>
+  <text x="107" y="268" text-anchor="middle" font-size="7.5" font-weight="600" fill="#DC2626">Score: S_rule ∈ [0, 100]</text>
+
+  <rect x="200" y="226" width="158" height="52" rx="4" fill="#FFFFFF" stroke="#EA580C" stroke-width="0.8"/>
+  <text x="279" y="242" text-anchor="middle" font-size="8.5" font-weight="700" fill="#C2410C">Layer 2: Statistical Z-Score</text>
+  <text x="279" y="256" text-anchor="middle" font-size="7.5" fill="#7C2D12">Adaptive Moving Baseline</text>
+  <text x="279" y="268" text-anchor="middle" font-size="7.5" font-weight="600" fill="#EA580C">Score: S_stat ∈ [0, 100]</text>
+
+  <rect x="28" y="286" width="158" height="52" rx="4" fill="#FFFFFF" stroke="#16A34A" stroke-width="0.8"/>
+  <text x="107" y="302" text-anchor="middle" font-size="8.5" font-weight="700" fill="#15803D">Layer 3: RandomForest ML</text>
+  <text x="107" y="316" text-anchor="middle" font-size="7.5" fill="#14532D">20-Feature Class Probability</text>
+  <text x="107" y="328" text-anchor="middle" font-size="7.5" font-weight="600" fill="#16A34A">Score: S_ml = 100 · p(y=1)</text>
+
+  <rect x="200" y="286" width="158" height="52" rx="4" fill="#FFFFFF" stroke="#0D9488" stroke-width="0.8"/>
+  <text x="279" y="302" text-anchor="middle" font-size="8.5" font-weight="700" fill="#0F766E">Layer 4: Graph Topology</text>
+  <text x="279" y="316" text-anchor="middle" font-size="7.5" fill="#115E59">PageRank + Louvain + Motifs</text>
+  <text x="279" y="328" text-anchor="middle" font-size="7.5" font-weight="600" fill="#0D9488">Score: S_graph ∈ [0, 100]</text>
+
+  <line x1="193" y1="350" x2="193" y2="366" stroke="#7E22CE" stroke-width="1.4" marker-end="url(#arr-purple)"/>
+
+  <!-- Step 4 -->
+  <rect x="18" y="366" width="350" height="74" rx="6" fill="#FEFCE8" stroke="#FDE047" stroke-width="1"/>
+  <text x="193" y="384" text-anchor="middle" font-size="10.5" font-weight="700" fill="#713F12">4. Ensemble Risk Scoring &amp; Alert Routing</text>
+  <text x="193" y="400" text-anchor="middle" font-size="8.5" fill="#854D0E">S = 0.20 S_rule + 0.20 S_stat + 0.35 S_ml + 0.25 S_graph</text>
+  <text x="193" y="414" text-anchor="middle" font-size="8.5" font-weight="600" fill="#713F12">Risk Severity: LOW (0–39) · MEDIUM (40–69) · HIGH (70–100)</text>
+  <text x="193" y="428" text-anchor="middle" font-size="8" font-weight="700" fill="#D97706">Automated Escalation Protocol Triggered</text>
+
+  <line x1="193" y1="440" x2="193" y2="456" stroke="#7E22CE" stroke-width="1.4" marker-end="url(#arr-purple)"/>
+
+  <!-- Step 5 -->
+  <rect x="18" y="456" width="350" height="94" rx="6" fill="#FAF5FF" stroke="#E9D5FF" stroke-width="1"/>
+  <text x="193" y="474" text-anchor="middle" font-size="10.5" font-weight="700" fill="#6B21A8">5. Automated Explainability &amp; SAR Drafting</text>
+  <text x="193" y="490" text-anchor="middle" font-size="8.5" fill="#7E22CE">• TreeSHAP local log-odds contributions &amp; top risk drivers</text>
+  <text x="193" y="504" text-anchor="middle" font-size="8.5" fill="#7E22CE">• Actionable counterfactual guidance for compliance analyst</text>
+  <text x="193" y="518" text-anchor="middle" font-size="8.5" fill="#7E22CE">• Legal Regulatory Citations (FATF Rec 10, 16, 20 · 31 U.S.C. § 5324)</text>
+  <text x="193" y="534" text-anchor="middle" font-size="8" font-weight="700" fill="#7E22CE">Drafts full legal SAR Form 111 filing narrative</text>
+
+  <line x1="193" y1="550" x2="193" y2="566" stroke="#7E22CE" stroke-width="1.4" marker-end="url(#arr-purple)"/>
+
+  <!-- Step 6 -->
+  <rect x="18" y="566" width="350" height="80" rx="6" fill="#F0FDF4" stroke="#BBF7D0" stroke-width="1"/>
+  <text x="193" y="584" text-anchor="middle" font-size="10.5" font-weight="700" fill="#15803D">6. Unified Streamlit SOC Dashboard</text>
+  <text x="193" y="600" text-anchor="middle" font-size="8.5" fill="#166534">• Tab 1: Alert Center &amp; Interactive Vis.js Network Graph</text>
+  <text x="193" y="614" text-anchor="middle" font-size="8.5" fill="#166534">• Tab 2: Deep Investigation &amp; TreeSHAP Feature Shifts</text>
+  <text x="193" y="628" text-anchor="middle" font-size="8.5" fill="#166534">• Tab 3: Model Performance (5-Fold CV, PR Curves, Matrix)</text>
+  <text x="193" y="640" text-anchor="middle" font-size="8" font-weight="700" fill="#15803D">Tab 4: Regulatory Reference Mapper</text>
+</g>
+
+<!-- CAPTION -->
+<line x1="48" y1="758" x2="852" y2="758" stroke="#CBD5E1" stroke-width="0.8"/>
+<text x="450" y="778" text-anchor="middle" font-size="11" font-weight="800" fill="#0F172A">
+  Fig. 2.  Dual-Phase Pipeline Architecture of AML Sentinel: Offline Model Precomputation vs. Real-Time Agentic Inference
+</text>
+<text x="450" y="794" text-anchor="middle" font-size="9" fill="#64748B">
+  Comparison of batch data engineering, graph topology precomputations, and model training (Phase I) against sub-second natural language query routing, multi-layer ensemble scoring, and automated compliance filing (Phase II).
+</text>
+
+</svg>
