@@ -167,10 +167,10 @@ Below is the complete query-to-explainability pipeline of AML Sentinel:
 
 ### 📐 End-to-End System Architecture Specification
 
-<img src="figures/architecture_diagram_ieee_masterpiece.svg" alt="AML Sentinel Masterpiece System Architecture Diagram" width="920" />
+<img src="figures/architecture_diagram_ieee_masterpiece.svg" alt="AML Sentinel Masterpiece System Architecture Diagram" width="940" />
 
 <br/>
-<em><b>Fig. 1:</b> End-to-End System Architecture of AML Sentinel — Illustrating the 6-Phase Pipeline from Ledger Ingestion & 20-D Feature Engineering to Agentic Query Routing, 4-Layer Hybrid Detection, and Automated SAR Compliance Filing.</em>
+<em><b>Fig. 1:</b> End-to-End System Architecture of AML Sentinel — Illustrating the Integration Across 5 Subsystems: Ingestion & 20-D Feature Engineering (Module I) → Agentic Query Parsing & Intent Dispatch (Module II) → Quad-Engine Hybrid Detection Stack (Module III) → Calibrated Weighted Ensemble Fusion (Module IV) → Explainable Compliance & FinCEN Form 111 SAR Generation (Module V).</em>
 
 <br/><br/>
 
